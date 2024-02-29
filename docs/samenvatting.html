@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Samenvatting</title>
+    <base href="/bt-tax-form/" />
+  </head>
+  <body>
+    <header>
+      <h1>Samenvatting</h1>
+    </header>
+    <main>
+      <form>
+        <fieldset>
+          <legend>Gegevens van de overledene</legend>
+          <div>
+            <label for="first-letters">Voorletter(s)</label>
+            <input
+              type="text"
+              id="first-letters"
+              name="first-letters"
+              required
+              aria-required="true"
+            />
+            <div role="alert" id="first-letters-alert">
+              <div id="first-letters-error">
+                <!--- Use JS to inject the alert here -->
+              </div>
+            </div>
+          </div>
+          <div>
+            <label for="family-affix">Tussenvoegsel(s)</label>
+            <input
+              type="text"
+              id="family-affix"
+              name="family-affix"
+              required
+              aria-required="true"
+            />
+          </div>
+          <div>
+            <label for="surname">Achternaam</label>
+            <input
+              type="text"
+              id="surname"
+              name="surname"
+              required
+              aria-required="true"
+            />
+          </div>
+          <div>
+            <label for="bsn-deceased">Burgerservicenummer overledene</label>
+            <input
+              type="text"
+              id="bsn-deceased"
+              name="bsn-deceased"
+              inputmode="numeric"
+              pattern="[0-9]{9}"
+              minlength="9"
+              maxlength="9"
+              required
+              aria-required="true"
+            />
+          </div>
+        </fieldset>
+        <button type="reset">Reset</button>
+        <button type="submit">Submit</button>
+      </form>
+    </main>
+    <footer>
+      <nav aria-label="Pagination">
+        <a href="samenstelling-van-de-erfenis.html">Vorige</a>
+        <a href="index.html">Afsluiten</a>
+      </nav>
+      &copy; 2024
+    </footer>
+  </body>
+</html>
