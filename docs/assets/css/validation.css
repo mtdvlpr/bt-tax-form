@@ -1,0 +1,25 @@
+/* Form validation styles */
+
+input + span {
+  position: relative;
+}
+
+input + span::before {
+  position: absolute;
+  left: 4px;
+  top: -2px;
+}
+
+input:not(:placeholder-shown):invalid {
+  border: 2px solid red;
+}
+
+input:not(:placeholder-shown):invalid + span::before {
+  content: "✖";
+  color: red;
+}
+
+input:not(:placeholder-shown):valid + span::before {
+  content: "✓";
+  color: green;
+}

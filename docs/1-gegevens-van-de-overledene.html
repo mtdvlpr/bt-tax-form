@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/step1.css" />
+    <title>Stap 1 van 5: Gegevens van de overledene</title>
+    <base href="/bt-tax-form/" />
+  </head>
+  <body>
+    <header>
+      <h1>Stap 1 van 5: Gegevens van de overledene</h1>
+    </header>
+    <main>
+      <form>
+        <fieldset>
+          <legend>1a.</legend>
+          <div>
+            <label for="first-letters">Voorletter(s):</label>
+            <input
+              type="text"
+              id="first-letters"
+              name="first-letters"
+              placeholder="A.B."
+              required
+              aria-required="true"
+            />
+            <span></span>
+          </div>
+          <div>
+            <label for="family-affix">Tussenvoegsel(s):</label>
+            <input
+              type="text"
+              id="family-affix"
+              name="family-affix"
+              placeholder="van"
+              required
+              aria-required="true"
+            />
+            <span></span>
+          </div>
+          <div>
+            <label for="surname">Achternaam:</label>
+            <input
+              type="text"
+              id="surname"
+              name="surname"
+              placeholder="Smit"
+              required
+              aria-required="true"
+            />
+            <span></span>
+          </div>
+          <div>
+            <label for="bsn-deceased">Burgerservicenummer overledene:</label>
+            <input
+              type="text"
+              id="bsn-deceased"
+              name="bsn-deceased"
+              placeholder="123456789"
+              inputmode="numeric"
+              pattern="[0-9]{8,9}"
+              minlength="8"
+              maxlength="9"
+              required
+              aria-required="true"
+            />
+            <span></span>
+          </div>
+          <div>
+            <label for="date-deceased">Overlijdensdatum:</label>
+            <input
+              type="date"
+              id="date-deceased"
+              name="date-deceased"
+              placeholder="yyyy-mm-dd"
+              pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
+              required
+              aria-required="true"
+            />
+            <span></span>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>1b.</legend>
+          <fieldset>
+            <legend>
+              Was de overledene getrouwd of had de overledene een geregistreerd
+              partner op het moment van overlijden?
+            </legend>
+            <div>
+              <input type="radio" id="married-no" name="married" checked />
+              <label for="married-no">Nee.</label>
+              <a href="1-gegevens-van-de-overledene.html#1c">
+                Ga verder met vraag 1c.
+              </a>
+            </div>
+            <div>
+              <input type="radio" id="married-yes" name="married" />
+              <label for="married-yes">Ja.</label>
+            </div>
+          </fieldset>
+          <fieldset data-hide="married-no">
+            <legend>
+              Hadden de overledene en diens echtgenoot of geregistreerd partner
+              huwelijkse of partner schaps- voorwaarden laten vastleggen in een
+              notariële akte?
+            </legend>
+            <div>
+              <input
+                type="radio"
+                id="married-agreement-no"
+                name="married-agreement"
+                checked
+              />
+              <label for="married-agreement-no">Nee.</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                id="married-agreement-yes"
+                name="married-agreement"
+              />
+              <label for="married-agreement-yes">
+                Ja. Stuur een kopie van de akte mee met de aangifte.
+              </label>
+            </div>
+            <div data-hide="married-agreement-no">
+              <label for="married-agreement-file">Kopie van de akte:</label>
+              <input
+                type="file"
+                id="married-agreement-file"
+                name="married-agreement-file"
+              />
+            </div>
+          </fieldset>
+          <fieldset data-hide="married-no">
+            <legend>
+              Hadden de overledene en diens partner een finaal verrekenbeding?
+            </legend>
+            <div>
+              <input
+                type="radio"
+                id="married-verrekenbeding-no"
+                name="married-verrekenbeding"
+                checked
+              />
+              <label for="married-verrekenbeding-no">Nee.</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                id="married-verrekenbeding-yes"
+                name="married-verrekenbeding"
+              />
+              <label for="married-verrekenbeding-yes">Ja.</label>
+            </div>
+          </fieldset>
+          <div data-hide="married-no">
+            <label for="date-married">
+              Datum huwelijkse of partnerschapsvoorwaarden:
+            </label>
+            <input
+              type="date"
+              id="date-married"
+              name="date-married"
+              placeholder="yyyy-mm-dd"
+              pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
+              required
+              aria-required="true"
+            />
+            <span></span>
+          </div>
+        </fieldset>
+        <fieldset id="1c">
+          <legend>1c.</legend>
+          <fieldset>
+            <legend>Had de overledene kinderen?</legend>
+            <div>
+              <input type="radio" id="children-no" name="children" checked />
+              <label for="children-no">Nee.</label>
+              <a href="1-gegevens-van-de-overledene.html#1d">
+                Ga verder met vraag 1d.
+              </a>
+            </div>
+            <div>
+              <input type="radio" id="children-yes" name="children" />
+              <label for="children-yes">Ja.</label>
+            </div>
+          </fieldset>
+          <fieldset data-hide="children-no">
+            <legend>
+              Is 1 van deze kinderen eerder overleden dan de overledene voor wie
+              u nu aangifte doet?
+            </legend>
+            <div>
+              <input
+                type="radio"
+                id="child-deceased-no"
+                name="child-deceased"
+                checked
+              />
+              <label for="child-deceased-no">Nee.</label>
+              <a href="1-gegevens-van-de-overledene.html#1d">
+                Ga verder met vraag 1d.
+              </a>
+            </div>
+            <div>
+              <input
+                type="radio"
+                id="child-deceased-yes"
+                name="child-deceased"
+              />
+              <label for="child-deceased-yes">Ja.</label>
+            </div>
+          </fieldset>
+          <fieldset data-hide="child-deceased-no">
+            <legend>Had dit overleden kind zelf kinderen?</legend>
+            <div>
+              <input
+                type="radio"
+                id="child-deceased-children-no"
+                name="child-deceased-children"
+                checked
+              />
+              <label for="child-deceased-children-no">Nee.</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                id="child-deceased-children-yes"
+                name="child-deceased-children"
+              />
+              <label for="child-deceased-children-yes">Ja.</label>
+            </div>
+          </fieldset>
+        </fieldset>
+        <fieldset id="1d">
+          <legend>1d.</legend>
+          <fieldset>
+            <legend>Had de overledene een testament?</legend>
+            <div>
+              <input type="radio" id="testament-no" name="testament" checked />
+              <label for="testament-no">Nee.</label>
+              <a href="1-gegevens-van-de-overledene.html#submit">
+                Verstuur dit formulier.
+              </a>
+            </div>
+            <div>
+              <input type="radio" id="testament-yes" name="testament" />
+              <label for="testament-yes">Ja.</label>
+              <span>
+                Vul de gegevens in van de notaris die het testament heeft
+                opgemaakt en de datum van het testament.
+              </span>
+            </div>
+          </fieldset>
+          <fieldset data-hide="testament-no">
+            <legend>Gegevens van de notaris</legend>
+            <div>
+              <label for="notary-number">Protocolnummer notaris:</label>
+              <input
+                type="text"
+                id="notary-number"
+                name="notary-number"
+                placeholder="123456"
+                inputmode="numeric"
+                pattern="[0-9]{6}"
+                minlength="6"
+                maxlength="6"
+                required
+                aria-required="true"
+              />
+              <span></span>
+            </div>
+            <div>
+              <label for="notary-first-letters">Voorletter(s):</label>
+              <input
+                type="text"
+                id="notary-first-letters"
+                name="notary-first-letters"
+                placeholder="A.B."
+                required
+                aria-required="true"
+              />
+              <span></span>
+            </div>
+            <div>
+              <label for="notary-family-affix">Tussenvoegsel(s):</label>
+              <input
+                type="text"
+                id="notary-family-affix"
+                name="notary-family-affix"
+                placeholder="van"
+                required
+                aria-required="true"
+              />
+              <span></span>
+            </div>
+            <div>
+              <label for="notary-surname">Achternaam:</label>
+              <input
+                type="text"
+                id="notary-surname"
+                name="notary-surname"
+                placeholder="Smit"
+                required
+                aria-required="true"
+              />
+              <span></span>
+            </div>
+            <div>
+              <label for="notary-place">Vestigingsplaats:</label>
+              <input
+                type="text"
+                id="notary-place"
+                name="notary-place"
+                placeholder="Amsterdam"
+                required
+                aria-required="true"
+              />
+              <span></span>
+            </div>
+            <div>
+              <label for="date-testament">
+                Datum van het testament of van de laatste wijziging:
+              </label>
+              <input
+                type="date"
+                id="date-testament"
+                name="date-testament"
+                placeholder="yyyy-mm-dd"
+                pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
+                required
+                aria-required="true"
+              />
+              <span></span>
+            </div>
+          </fieldset>
+        </fieldset>
+        <button type="reset">Reset</button>
+        <button id="submit" type="submit">Submit</button>
+      </form>
+    </main>
+    <footer id="footer">
+      <nav aria-label="Paginatie">
+        <a href="index.html">Vorige</a>
+        <a href="2-gegevens-gemachtigde.html">Volgende</a>
+      </nav>
+      &copy; 2024
+    </footer>
+  </body>
+</html>

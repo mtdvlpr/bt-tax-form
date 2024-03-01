@@ -1,0 +1,22 @@
+/* Hide unnecessary fields */
+@supports selector(:has(#married-no:checked)) {
+  :root:has(#married-no:checked) [data-hide="married-no"] {
+    display: none;
+  }
+
+  :root:has(#married-agreement-no:checked) [data-hide="married-agreement-no"] {
+    display: none;
+  }
+
+  :root:has(#children-no:checked) [data-hide="children-no"] {
+    display: none;
+  }
+
+  :root:has(#child-deceased-no:checked) [data-hide="child-deceased-no"] {
+    display: none;
+  }
+
+  :root:has(#testament-no:checked) [data-hide="testament-no"] {
+    display: none;
+  }
+}
