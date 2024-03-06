@@ -1,0 +1,13 @@
+/* Pagination styles */
+
+:rot:has(form:invalid) footer nav span:nth-of-type(2) {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+:rot:has(form:invalid) footer nav span:nth-of-type(2) a {
+  color: unset;
+  pointer-events: none;
+  display: inline-block; /* For IE11/ MS Edge bug */
+  text-decoration: none;
+}

@@ -16,5 +16,6 @@
   "cSpell.language": "en,nl",
   "typescript.tsdk": "node_modules/typescript/lib",
   "liveServer.settings.root": "/docs",
-  "liveServer.settings.mount": [["/bt-tax-form/", "./docs"]]
+  "liveServer.settings.mount": [["/bt-tax-form/", "./docs"]],
+  "cSpell.words": ["Todos"]
 }
