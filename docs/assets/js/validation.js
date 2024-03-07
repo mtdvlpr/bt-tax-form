@@ -138,20 +138,22 @@ function initErrorMessages() {
       setNextDisabled();
     });
 
-    if (input.getAttribute("type") === "date") {
-      // Add extra change event listener for date inputs
+    const type = input.getAttribute("type");
+
+    // Set the dynamic max attributes for date inputs
+    if (type == "date") {
+      let today = new Date();
+      const offset = today.getTimezoneOffset();
+      today = new Date(today.getTime() - offset * 60 * 1000);
+      input.max = today.toISOString().split("T")[0];
+    }
+
+    // Add extra change event listener for date and file inputs
+    if (type === "date" || type === "file") {
       input.addEventListener("change", (e) => {
         setFeedbackMessage(e.target);
         setNextDisabled();
       });
-
-      // Set the dynamic max attributes for date inputs
-      if (input.getAttribute("data-max") === "today") {
-        let today = new Date();
-        const offset = today.getTimezoneOffset();
-        today = new Date(today.getTime() - offset * 60 * 1000);
-        input.max = today.toISOString().split("T")[0];
-      }
     }
   });
 }
@@ -174,7 +176,7 @@ function setFeedbackMessage(target) {
       errorEl.style.color = color;
       errorEl.innerText = "✓";
     } else if (cssMsg === "none") {
-      const color = dark ? "red" : "#ad0000";
+      const color = dark ? "#ff4242" : "#ad0000";
       target.style.border = `2px solid ${color}`;
       errorEl.style.color = color;
       errorEl.innerText = errorEl.getAttribute("data-error-message");

@@ -1,6 +1,6 @@
 /* Form styles */
 
-input:not([type="radio"]) {
+input {
   margin: 0.5rem 0;
 }
 

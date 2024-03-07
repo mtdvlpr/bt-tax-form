@@ -10,6 +10,6 @@ TODO: Fix next button disabled after submitting
 :root:has(form:invalid) footer nav span:nth-of-type(2) a {
   color: unset;
   pointer-events: none;
-  display: inline-block; /* For IE11/ MS Edge bug */
+  display: inline-block; /* For IE11/ MS Edge bug *//*
   text-decoration: none;
 }

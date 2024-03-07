@@ -17,9 +17,9 @@
   --link-hover-color-dark: #535bf2;
   --button-color-dark: #1a1a1a;
   --button-hover-color-dark: #646cff;
-  --info-color-dark: #2196f3;
+  --info-color-dark: #0462ae;
   --success-color-dark: #00ff00;
-  --error-color-dark: red;
+  --error-color-dark: #ff4242;
 }
 
 /* System prefers light */
