@@ -1,9 +1,38 @@
 /* Form styles */
 
-label {
+fieldset > div > label {
   display: block;
 }
 
-input + label {
+fieldset > div > input + label {
   display: inline;
+}
+
+[data-tooltip] button {
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: 50%;
+  border: 0;
+  background: #000;
+  font-family: serif;
+  font-weight: bold;
+  color: #fff;
+}
+
+[data-tooltip] button:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.25rem skyblue;
+}
+
+[data-tooltip] > span > div {
+  max-width: 60ch;
+  padding: 0.5rem;
+  margin: 0.5rem 0;
+  background-color: #2196f3;
+  color: #fff;
+}
+
+[data-tooltip] > span > div a {
+  color: #fff;
 }

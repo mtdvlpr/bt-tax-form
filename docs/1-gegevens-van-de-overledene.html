@@ -17,7 +17,9 @@
         <fieldset>
           <legend>1a.</legend>
           <div>
-            <label for="first-letters">Voorletter(s):</label>
+            <div>
+              <label for="first-letters">Voorletter(s):</label>
+            </div>
             <input
               type="text"
               id="first-letters"
@@ -106,6 +108,43 @@
               Was de overledene getrouwd of had de overledene een geregistreerd
               partner op het moment van overlijden?
             </legend>
+            <span
+              data-tooltip="<p>Vul deze vraag in als de overledene op de datum van overlijden getrouwd was of een geregistreerd partner had.</p>
+              U hoeft vraag 1b niet in te vullen als:
+                  <ul>
+                    <li>
+                      de overledene een notarieel samenlevingscontract had met
+                      diens partner
+                    </li>
+                    <li>
+                      de overledene samen met een partner of huisgenoot op
+                      hetzelfde adres stond ingeschreven in de Basisregistratie
+                      Personen (BRP) van de gemeente
+                    </li>
+                  </ul>"
+            >
+              <span role="status" aria-live="polite">
+                <div>
+                  <p>
+                    Vul deze vraag in als de overledene op de datum van
+                    overlijden getrouwd was of een geregistreerd partner had.
+                  </p>
+
+                  U hoeft vraag 1b niet in te vullen als:
+                  <ul>
+                    <li>
+                      de overledene een notarieel samenlevingscontract had met
+                      diens partner
+                    </li>
+                    <li>
+                      de overledene samen met een partner of huisgenoot op
+                      hetzelfde adres stond ingeschreven in de Basisregistratie
+                      Personen (BRP) van de gemeente
+                    </li>
+                  </ul>
+                </div>
+              </span>
+            </span>
             <div>
               <input type="radio" id="married-no" name="married" checked />
               <label for="married-no">Nee.</label>
@@ -293,7 +332,20 @@
           <fieldset data-hide="testament-no">
             <legend>Gegevens van de notaris</legend>
             <div>
-              <label for="notary-number">Protocolnummer notaris:</label>
+              <div>
+                <label for="notary-number">Protocolnummer notaris:</label>
+                <span
+                  data-tooltip="Het nummer van een notaris in functie vindt u op <a href='registernotariaat.nl'>registernotariaat.nl</a> in het <b>Register notariaat</b>."
+                >
+                  <span role="status" aria-live="polite">
+                    <div>
+                      Het nummer van een notaris in functie vindt u op
+                      <a href="registernotariaat.nl">registernotariaat.nl</a> in
+                      het <b>Register notariaat</b>.
+                    </div>
+                  </span>
+                </span>
+              </div>
               <input
                 type="text"
                 id="notary-number"
@@ -406,6 +458,7 @@
       </nav>
       &copy; 2024
     </footer>
+    <script src="assets/js/form.js"></script>
     <script src="assets/js/validation.js"></script>
     <script src="assets/js/pagination.js"></script>
   </body>

@@ -24,6 +24,9 @@ Wat wil je doen met progressive enhancement? `HTML` > `CSS` > `JS`
 
 ## Bronnen
 
-- https://developer.mozilla.org/en-US/docs/Learn/Forms
-- https://www.w3.org/WAI/tutorials/forms/
-- https://www.magentaa11y.com/web/
+- Formulieren: https://developer.mozilla.org/en-US/docs/Learn/Forms
+- Toegankelijke formulieren: https://www.w3.org/WAI/tutorials/forms/
+- Toegankelijkheid: https://www.magentaa11y.com/web/
+- Semantische nadruk: https://dev.to/masakudamatsu/html-mark-up-for-italic-text-3038
+- Input validatie: https://www.w3.org/WAI/tutorials/forms/notifications/#inline
+- Toggletip: https://inclusive-components.design/tooltips-toggletips/

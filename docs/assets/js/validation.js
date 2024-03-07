@@ -117,6 +117,7 @@ setNextDisabled();
  * Sets the state of the next button based on form validity
  */
 function setNextDisabled() {
+  // TODO: Fix next button disabled after submitting
   return;
   const form = document.querySelector("form");
   const next = document.querySelector("footer nav span:nth-of-type(2) a");

@@ -1,6 +1,10 @@
 /* Validation styles */
 
 /* Input validation */
+input:user-valid {
+  border: 2px solid green;
+}
+
 input:user-invalid {
   border: 2px solid red;
 }
