@@ -1,3 +1,4 @@
+/* Add bottom padding to account for missing footer */
 body {
   padding-bottom: 2rem;
 }
