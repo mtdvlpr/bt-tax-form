@@ -1,0 +1,59 @@
+:root {
+  /* Light colors */
+  --text-color-light: #091520;
+  --bg-color-light: #ffffff;
+  --link-color-light: #646cff;
+  --link-hover-color-light: #747bff;
+  --button-color-light: #f9f9f9;
+  --button-hover-color-light: #646cff;
+  --info-color-light: lightskyblue;
+  --success-color-light: green;
+  --error-color-light: #ad0000;
+
+  /* Dark colors */
+  --text-color-dark: rgba(255, 255, 255, 0.87);
+  --bg-color-dark: #242424;
+  --link-color-dark: #646cff;
+  --link-hover-color-dark: #535bf2;
+  --button-color-dark: #1a1a1a;
+  --button-hover-color-dark: #646cff;
+  --info-color-dark: #2196f3;
+  --success-color-dark: #00ff00;
+  --error-color-dark: red;
+}
+
+/* System prefers light */
+@media (prefers-color-scheme: light), (prefers-color-scheme: no-preference) {
+  :root {
+    --text-color: var(--text-color-light);
+    --bg-color: var(--bg-color-light);
+    --link-color: var(--link-color-light);
+    --link-hover-color: var(--link-hover-color-light);
+    --button-color: var(--button-color-light);
+    --button-hover-color: var(--link-hover-color-light);
+    --info-color: var(--info-color-light);
+    --success-color: var(--success-color-light);
+    --error-color: var(--error-color-light);
+    accent-color: var(--link-color-light);
+    color-scheme: light;
+    font-palette: light;
+  }
+}
+
+/* System prefers dark or no preference */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-color: var(--text-color-dark);
+    --bg-color: var(--bg-color-dark);
+    --link-color: var(--link-color-dark);
+    --link-hover-color: var(--link-hover-color-dark);
+    --button-color: var(--button-color-dark);
+    --button-hover-color: var(--link-hover-color-dark);
+    --info-color: var(--info-color-dark);
+    --success-color: var(--success-color-dark);
+    --error-color: var(--error-color-dark);
+    accent-color: var(--link-color-dark);
+    color-scheme: dark;
+    font-palette: dark;
+  }
+}

@@ -167,13 +167,16 @@ function setFeedbackMessage(target) {
     const cssMsg = window.getComputedStyle(errorEl, "::before").content;
 
     // Set error message if CSS failed
+    const dark = prefersDark();
     if (cssMsg === "none" && valid) {
-      target.style.border = "";
-      errorEl.style.color = "green";
+      const color = dark ? "#00ff00" : "green";
+      target.style.border = `2px solid ${color}`;
+      errorEl.style.color = color;
       errorEl.innerText = "✓";
     } else if (cssMsg === "none") {
-      target.style.border = "2px solid red";
-      errorEl.style.color = "red";
+      const color = dark ? "red" : "#ad0000";
+      target.style.border = `2px solid ${color}`;
+      errorEl.style.color = color;
       errorEl.innerText = errorEl.getAttribute("data-error-message");
     } else {
       target.style.border = "";
@@ -181,4 +184,8 @@ function setFeedbackMessage(target) {
       errorEl.innerText = "";
     }
   }
+}
+
+function prefersDark() {
+  return window.matchMedia("(prefers-color-scheme: dark)").matches;
 }

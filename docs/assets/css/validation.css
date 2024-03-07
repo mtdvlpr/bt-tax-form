@@ -2,19 +2,19 @@
 
 /* Input validation */
 input:user-valid {
-  border: 2px solid green;
+  border: 2px solid var(--success-color);
 }
 
 input:user-invalid {
-  border: 2px solid red;
+  border: 2px solid var(--error-color);
 }
 
 input:user-invalid + span::before {
   content: attr(data-error-message);
-  color: red;
+  color: var(--error-color);
 }
 
 input:user-valid + span::before {
   content: "✓";
-  color: green;
+  color: var(--success-color);
 }
