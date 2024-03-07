@@ -28,11 +28,15 @@ function initValidation() {
     const hiddenInputs = document.querySelectorAll(
       `[data-hide="${controller}"] > input, [data-hide="${controller}"] :not([data-hide]) > input`
     );
+    const container = document.querySelector(`[data-hide="${controller}"]`);
+    const containerParent = container ? container.parentElement : null;
+    const ancestorContainer = containerParent
+      ? containerParent.closest(`[data-hide]`)
+      : null;
     inputMap[controller] = {
-      parent: document
-        .querySelector(`[data-hide="${controller}"]`)
-        ?.parentElement?.closest(`[data-hide]`)
-        ?.getAttribute("data-hide"),
+      parent: ancestorContainer
+        ? ancestorContainer.getAttribute("data-hide")
+        : null,
       inputs: hiddenInputs,
     };
 
@@ -71,6 +75,7 @@ function toggleSection(controller, show = false) {
   const containerEl = document.querySelector(`[data-hide=${controller}]`);
   containerEl.style.display = show ? "" : "none";
   const inputs = inputMap[controller].inputs;
+  const last = inputs.lastIndexOf(inputs[inputs.length - 1]);
   if (inputs) {
     inputs.forEach((input) => {
       setDisabled(input, !show);
