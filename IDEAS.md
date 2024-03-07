@@ -31,3 +31,4 @@ Wat wil je doen met progressive enhancement? `HTML` > `CSS` > `JS`
 - Input validatie: https://www.w3.org/WAI/tutorials/forms/notifications/#inline
 - Toggletip: https://inclusive-components.design/tooltips-toggletips/
 - CSS reset: https://piccalil.li/blog/a-more-modern-css-reset/
+- ES6 support: https://caniuse.com/?search=es6

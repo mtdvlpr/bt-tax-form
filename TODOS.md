@@ -13,6 +13,7 @@
 - [x] Validation via `:user-valid`, `:user-invalid`, `data-error-message`
 - [ ] Disable next link when form is invalid
 - [x] Explanation text for questions
+- [x] Print stylesheet
 
 ## JavaScript
 
@@ -21,3 +22,4 @@
 - [x] Date inputs with `min` and `max` of today's date via `data-min`, `data-max`
 - [ ] Disable next link when form is invalid
 - [x] Explanation text for questions
+- [x] Print stylesheet
