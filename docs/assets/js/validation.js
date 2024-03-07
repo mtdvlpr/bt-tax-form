@@ -75,7 +75,6 @@ function toggleSection(controller, show = false) {
   const containerEl = document.querySelector(`[data-hide=${controller}]`);
   containerEl.style.display = show ? "" : "none";
   const inputs = inputMap[controller].inputs;
-  const last = inputs.lastIndexOf(inputs[inputs.length - 1]);
   if (inputs) {
     inputs.forEach((input) => {
       setDisabled(input, !show);
