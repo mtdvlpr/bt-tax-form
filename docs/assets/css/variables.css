@@ -22,7 +22,7 @@
   --error-color-dark: #ff4242;
 }
 
-/* System prefers light */
+/* System prefers light or no preference */
 @media (prefers-color-scheme: light), (prefers-color-scheme: no-preference) {
   :root {
     --text-color: var(--text-color-light);
@@ -40,7 +40,7 @@
   }
 }
 
-/* System prefers dark or no preference */
+/* System prefers dark */
 @media (prefers-color-scheme: dark) {
   :root {
     --text-color: var(--text-color-dark);

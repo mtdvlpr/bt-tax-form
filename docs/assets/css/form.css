@@ -1,5 +1,13 @@
 /* Form styles */
 
+/* Fieldsets */
+@media (prefers-color-scheme: dark) {
+  fieldset {
+    border-color: gray;
+  }
+}
+
+/* Inputs and labels */
 input {
   margin: 0.5rem 0;
 }
@@ -12,6 +20,7 @@ fieldset > div > input + label {
   display: inline;
 }
 
+/* Tooltips */
 [data-tooltip] button {
   display: inline-block;
   width: 1.5em;
