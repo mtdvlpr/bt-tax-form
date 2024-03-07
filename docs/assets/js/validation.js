@@ -77,6 +77,7 @@ function toggleSection(controller, show = false) {
       if (input.hasAttribute("data-required")) {
         setRequired(input, show);
       }
+      if (!show) resetValue(input);
     });
   }
 
@@ -110,6 +111,19 @@ function setDisabled(el, disabled = false) {
   if (el) {
     el.toggleAttribute("disabled", disabled);
     el.toggleAttribute("aria-disabled", disabled);
+  }
+}
+
+/**
+ * Resets the input value to its default
+ * @param {HTMLInputElement} el The element to reset the value of
+ */
+function resetValue(el) {
+  const type = el.getAttribute("type");
+  if (type === "radio") {
+    el.checked = el.id.includes("-no");
+  } else {
+    el.value = "";
   }
 }
 
