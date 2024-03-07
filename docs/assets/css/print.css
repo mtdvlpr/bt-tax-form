@@ -1,0 +1,46 @@
+body {
+  padding-bottom: 2rem;
+}
+
+/* Show all hidden elements */
+[data-hide],
+header img {
+  display: block !important;
+}
+
+/* Hide web specific elements */
+button,
+footer,
+[data-tooltip],
+[data-error-message],
+div:has(> input[type="file"]) {
+  display: none !important;
+}
+
+/* Remove input validation */
+input {
+  border: 1px dashed !important;
+  border-color: unset !important;
+}
+
+/* Remove link styling */
+a {
+  font-weight: normal;
+  text-decoration: none !important;
+}
+
+/* Align labels and inputs next to each other */
+fieldset > div > div,
+fieldset > div > label {
+  display: flex;
+  align-items: center;
+}
+
+fieldset > div {
+  display: flex;
+  justify-content: space-between;
+}
+
+fieldset > div:has(> input[type="radio"]) {
+  display: block;
+}

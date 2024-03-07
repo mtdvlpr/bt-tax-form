@@ -4,6 +4,10 @@
  */
 const inputMap = {};
 
+initValidation();
+initErrorMessages();
+setNextDisabled();
+
 /**
  * Initializes the form validation
  */
@@ -109,10 +113,6 @@ function setDisabled(el, disabled = false) {
   }
 }
 
-initValidation();
-initErrorMessages();
-setNextDisabled();
-
 /**
  * Sets the state of the next button based on form validity
  */
@@ -168,7 +168,7 @@ function setFeedbackMessage(target) {
     const valid = target.validity.valid;
     const cssMsg = window.getComputedStyle(errorEl, "::before").content;
 
-    // Set error message if CSS failed
+    // Set feedback message if CSS failed
     const dark = prefersDark();
     if (cssMsg === "none" && valid) {
       const color = dark ? "#00ff00" : "green";
@@ -188,6 +188,71 @@ function setFeedbackMessage(target) {
   }
 }
 
+/**
+ * Returns whether the user prefers dark mode
+ * @returns {boolean} wether the user prefers dark mode
+ */
 function prefersDark() {
   return window.matchMedia("(prefers-color-scheme: dark)").matches;
+}
+
+// Print transformation before showing print dialog
+window.addEventListener("beforeprint", () => {
+  Object.keys(inputMap).forEach((controller) => {
+    toggleSection(controller, true);
+  });
+  replaceDateInputs();
+});
+
+// Reverse print transformation after print dialog is closed
+window.addEventListener("afterprint", () => {
+  initValidation();
+  replaceDateInputs(true);
+});
+
+/**
+ * Replaces date inputs with three separate text inputs for day, month and year
+ * @param {boolean} reverse Wether to reverse the transformation (text to date inputs)
+ */
+function replaceDateInputs(reverse = false) {
+  const dateInputs = document.querySelectorAll("input[type=date]");
+  dateInputs.forEach((input) => {
+    if (reverse) {
+      // Show date input and remove the three separate text inputs
+      input.style.display = "";
+      input.parentElement.removeChild(input.parentElement.querySelector("div"));
+    } else {
+      // Hide date input and create three separate text inputs
+      input.style.display = "none";
+      const div = document.createElement("div");
+      const day = document.createElement("input");
+      const month = document.createElement("input");
+      const year = document.createElement("input");
+      const separator = document.createElement("span");
+      separator.innerText = " - ";
+
+      // Set attributes for each input
+      day.style.width = "50px";
+      month.style.width = "50px";
+      year.style.width = "100px";
+      separator.style.margin = "0 5px";
+
+      // Extract date value and set them to the new inputs
+      const date = input.value;
+      if (date) {
+        const [y, m, d] = date.split("-");
+        day.value = d;
+        month.value = m;
+        year.value = y;
+      }
+
+      // Add inputs to the div and insert it before the date input
+      div.appendChild(day);
+      div.appendChild(separator);
+      div.appendChild(month);
+      div.appendChild(separator.cloneNode(true));
+      div.appendChild(year);
+      input.parentElement.insertBefore(div, input);
+    }
+  });
 }

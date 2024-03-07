@@ -11,8 +11,31 @@
 }
 
 body {
+  padding: 0 2rem;
   color: var(--text-color);
   background-color: var(--bg-color);
+}
+
+header {
+  padding-top: 1rem;
+}
+
+header img {
+  display: none;
+  margin: 0 auto;
+}
+
+header h1 {
+  margin-top: 0;
+}
+
+footer {
+  padding: 1em 0;
+  text-align: center;
+}
+
+p {
+  max-width: 60ch;
 }
 
 /* Buttons */

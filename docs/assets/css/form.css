@@ -33,8 +33,8 @@ fieldset > div > input + label {
 
 [data-tooltip] > span > div {
   max-width: 60ch;
-  padding: 0.5rem;
-  margin: 0.5rem 0;
+  padding: 0.5em;
+  margin: 0.5em 0;
   background-color: var(--info-color);
 }
 

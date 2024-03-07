@@ -30,3 +30,4 @@ Wat wil je doen met progressive enhancement? `HTML` > `CSS` > `JS`
 - Semantische nadruk: https://dev.to/masakudamatsu/html-mark-up-for-italic-text-3038
 - Input validatie: https://www.w3.org/WAI/tutorials/forms/notifications/#inline
 - Toggletip: https://inclusive-components.design/tooltips-toggletips/
+- CSS reset: https://piccalil.li/blog/a-more-modern-css-reset/
