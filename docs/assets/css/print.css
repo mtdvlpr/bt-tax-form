@@ -1,48 +1,50 @@
-/* Add bottom padding to account for missing footer */
-body {
-  padding-bottom: 2rem;
-}
+@media print {
+  /* Add bottom padding to account for missing footer */
+  body {
+    padding-bottom: 2rem;
+  }
 
-/* Show all hidden elements */
-:not(fieldset > div)[data-hide],
-header img {
-  display: block !important;
-}
+  /* Show all hidden elements */
+  :not(fieldset > div)[data-hide],
+  header img {
+    display: block !important;
+  }
 
-/* Hide web specific elements */
-button,
-footer,
-[data-tooltip],
-[data-error-message],
-div:has(> input[type="file"]) {
-  display: none !important;
-}
+  /* Hide web specific elements */
+  button,
+  footer,
+  [data-tooltip],
+  [data-error-message],
+  div:has(> input[type="file"]) {
+    display: none !important;
+  }
 
-/* Remove input validation */
-input {
-  border: 1px dashed !important;
-  border-color: unset !important;
-}
+  /* Remove input validation */
+  input {
+    border: 1px dashed !important;
+    border-color: unset !important;
+  }
 
-/* Remove link styling */
-a {
-  font-weight: normal;
-  text-decoration: none !important;
-}
+  /* Remove link styling */
+  a {
+    font-weight: normal;
+    text-decoration: none !important;
+  }
 
-/* Align labels and inputs next to each other */
-fieldset > div > div,
-fieldset > div > label {
-  display: flex !important;
-  align-items: center;
-}
+  /* Align labels and inputs next to each other */
+  fieldset > div > div,
+  fieldset > div > label {
+    display: flex !important;
+    align-items: center;
+  }
 
-form fieldset > div:not(:has(> input[type="radio"], > input[type="file"])) {
-  display: flex !important;
-  justify-content: space-between;
-}
+  form fieldset > div:not(:has(> input[type="radio"], > input[type="file"])) {
+    display: flex !important;
+    justify-content: space-between;
+  }
 
-/* Show radio input labels right next to input */
-fieldset > div > input + label {
-  display: inline !important;
+  /* Show radio input labels right next to input */
+  fieldset > div > input + label {
+    display: inline !important;
+  }
 }
