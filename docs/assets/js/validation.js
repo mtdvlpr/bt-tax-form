@@ -277,12 +277,17 @@ window.addEventListener("beforeprint", () => {
     toggleSection(controller, true);
   });
   replaceDateInputs();
+  const submitLink = document.querySelector('a[href$="#submit"]');
+  submitLink.innerText = "Ga verder met de volgende vraag.";
 });
 
 // Reverse print transformation after print dialog is closed
 window.addEventListener("afterprint", () => {
   initValidation();
   replaceDateInputs(true);
+  const submitLink = document.querySelector('a[href$="#submit"]');
+  submitLink.innerText =
+    "Verstuur dit formulier en ga verder met de volgende stap.";
 });
 
 /**
