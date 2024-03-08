@@ -1,73 +1,43 @@
 <!DOCTYPE html>
 <html lang="nl">
   <head>
+    <!-- Meta tags -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Krijgt u een erfenis? Vul op deze pagina je aangifte erfbelasting in."
+    />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="og:title" content="Aangifte Erfbelasting" />
+    <meta
+      name="og:description"
+      content="Krijgt u een erfenis? Vul op deze pagina je aangifte erfbelasting in."
+    />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" media="print" href="assets/css/print.css" />
+
+    <!-- Title and base URL -->
     <title>Stap 3 van 5: Voor wie doet u aangifte?</title>
     <base href="/bt-tax-form/" />
   </head>
   <body>
+    <!-- Header -->
     <header>
       <h1>Stap 3 van 5: Voor wie doet u aangifte?</h1>
     </header>
+
+    <!-- Main content -->
     <main>
       <form>
-        <fieldset>
-          <legend>Gegevens van de overledene</legend>
-          <div>
-            <label for="first-letters">Voorletter(s)</label>
-            <input
-              type="text"
-              id="first-letters"
-              name="first-letters"
-              required
-              aria-required="true"
-            />
-            <div role="alert" id="first-letters-alert">
-              <div id="first-letters-error">
-                <!--- Use JS to inject the alert here -->
-              </div>
-            </div>
-          </div>
-          <div>
-            <label for="family-affix">Tussenvoegsel(s)</label>
-            <input
-              type="text"
-              id="family-affix"
-              name="family-affix"
-              required
-              aria-required="true"
-            />
-          </div>
-          <div>
-            <label for="surname">Achternaam</label>
-            <input
-              type="text"
-              id="surname"
-              name="surname"
-              required
-              aria-required="true"
-            />
-          </div>
-          <div>
-            <label for="bsn-deceased">Burgerservicenummer overledene</label>
-            <input
-              type="text"
-              id="bsn-deceased"
-              name="bsn-deceased"
-              inputmode="numeric"
-              pattern="[0-9]{9}"
-              minlength="9"
-              maxlength="9"
-              required
-              aria-required="true"
-            />
-          </div>
-        </fieldset>
         <button type="reset">Reset</button>
-        <button type="submit">Submit</button>
+        <button id="submit" type="submit">Submit</button>
       </form>
     </main>
+
+    <!-- Footer -->
     <footer>
       <nav aria-label="Paginatie">
         <a href="2-gegevens-gemachtigde.html">Vorige</a>
@@ -75,5 +45,10 @@
       </nav>
       &copy; 2024
     </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/validation.js"></script>
+    <script src="assets/js/toggle.js"></script>
+    <script src="assets/js/form.js"></script>
   </body>
 </html>
