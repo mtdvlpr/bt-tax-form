@@ -68,6 +68,19 @@ function initErrorMessages() {
 function setFeedbackMessage(target) {
   const errorEl = document.getElementById(`${target.id}-desc`);
   if (errorEl) {
+    const validationType = target.getAttribute("data-validate");
+    if (validationType) {
+      target.setCustomValidity("");
+    }
+
+    if (validationType === "bsn") {
+      if (!validateBsn(target.value) && target.validity.valid) {
+        target.setCustomValidity(
+          "Het nummer voldoet niet aan de elfproef. Controleer het nummer en probeer het opnieuw."
+        );
+      }
+    }
+
     const valid = target.validity.valid;
     const cssMsg = window.getComputedStyle(errorEl, "::before").content;
 
@@ -89,6 +102,26 @@ function setFeedbackMessage(target) {
       errorEl.innerText = "";
     }
   }
+}
+
+/**
+ * Checks if value is a valid bsn number
+ * @param {string} bsn The value to check
+ * @returns {boolean} Whether the value is a valid bsn number
+ */
+function validateBsn(bsn) {
+  const bsnRegex = /^[0-9]{8,9}$/;
+  if (!bsnRegex.test(bsn)) return false;
+  const numbers = bsn.split("").map(Number);
+
+  let sum = numbers[numbers.length - 1] * -1;
+  let weight = numbers.length;
+  for (let i = 0; i < numbers.length - 1; i++) {
+    sum += numbers[i] * weight;
+    weight--;
+  }
+
+  return sum % 11 === 0;
 }
 
 /**
