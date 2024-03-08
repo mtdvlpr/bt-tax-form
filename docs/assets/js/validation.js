@@ -4,6 +4,7 @@
  */
 const inputMap = {};
 
+initPersistedData();
 initValidation();
 initErrorMessages();
 setNextDisabled();
@@ -154,6 +155,7 @@ function initErrorMessages() {
     input.addEventListener("blur", (e) => {
       setFeedbackMessage(e.target);
       setNextDisabled();
+      setPersistedData(e.target);
     });
 
     const type = input.getAttribute("type");
@@ -171,6 +173,24 @@ function initErrorMessages() {
       input.addEventListener("change", (e) => {
         setFeedbackMessage(e.target);
         setNextDisabled();
+      });
+    }
+
+    if (type === "radio") {
+      input.addEventListener("change", (e) => {
+        setPersistedData(e.target);
+        const id = e.target.id;
+        if (id.includes("-no")) {
+          const counterpart = document.getElementById(
+            id.replace("-no", "-yes")
+          );
+          setPersistedData(counterpart);
+        } else if (id.includes("-yes")) {
+          const counterpart = document.getElementById(
+            id.replace("-yes", "-no")
+          );
+          setPersistedData(counterpart);
+        }
       });
     }
   });
@@ -212,6 +232,43 @@ function setFeedbackMessage(target) {
  */
 function prefersDark() {
   return window.matchMedia("(prefers-color-scheme: dark)").matches;
+}
+
+function initPersistedData() {
+  const inputs = document.querySelectorAll("input");
+  inputs.forEach((input) => {
+    retrievePersistedData(input);
+  });
+}
+
+/**
+ * Retrieves persisted data for the given input
+ * @param {HTMLInputElement} el The input element to retrieve data for
+ */
+function retrievePersistedData(el) {
+  if (window.localStorage) {
+    const type = el.getAttribute("type");
+    const value = localStorage.getItem(el.id);
+    if (value && type === "radio") {
+      el.checked = value === "true";
+      return;
+    } else if (value && type !== "file") {
+      el.value = value;
+      return;
+    }
+  }
+}
+
+/**
+ * Sets persisted data for the given input
+ * @param {HTMLInputElement} el The input element to set data for
+ */
+function setPersistedData(el) {
+  if (window.localStorage) {
+    const type = el.getAttribute("type");
+    const value = type === "radio" ? el.checked : el.value;
+    window.localStorage.setItem(el.id, value);
+  }
 }
 
 // Print transformation before showing print dialog
