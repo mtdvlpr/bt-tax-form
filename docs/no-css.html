@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stap 1 van 5: Gegevens van de overledene</title>
+    <base href="/bt-tax-form/" />
+  </head>
+  <body>
+    <header>
+      <h1>Stap 1 van 5: Gegevens van de overledene</h1>
+    </header>
+    <main>
+      <form>
+        <fieldset>
+          <legend>1a.</legend>
+          <div>
+            <label for="first-letters">Voorletter(s):</label>
+            <input
+              type="text"
+              id="first-letters"
+              name="first-letters"
+              required
+              aria-required="true"
+              aria-describedby="first-letters-desc"
+            />
+            <span
+              id="first-letters-desc"
+              data-error-message="Dit veld is verplicht."
+            ></span>
+          </div>
+          <div>
+            <label for="family-affix">Tussenvoegsel(s):</label>
+            <input
+              type="text"
+              id="family-affix"
+              name="family-affix"
+              aria-describedby="family-affix-desc"
+            />
+            <span
+              id="family-affix-desc"
+              data-error-message="Dit veld is verplicht."
+            ></span>
+          </div>
+          <div>
+            <label for="surname">Achternaam:</label>
+            <input
+              type="text"
+              id="surname"
+              name="surname"
+              required
+              aria-required="true"
+              aria-describedby="surname-desc"
+            />
+            <span
+              id="surname-desc"
+              data-error-message="Dit veld is verplicht."
+            ></span>
+          </div>
+          <div>
+            <label for="bsn-deceased">Burgerservicenummer overledene:</label>
+            <input
+              type="text"
+              id="bsn-deceased"
+              name="bsn-deceased"
+              inputmode="numeric"
+              pattern="[0-9]{8,9}"
+              title="Vul een burgerservicenummer in van 8 of 9 nummers."
+              minlength="8"
+              required
+              aria-required="true"
+              aria-describedby="bsn-deceased-desc"
+            />
+            <span
+              id="bsn-deceased-desc"
+              data-error-message="Vul een burgerservicenummer in van 8 of 9 nummers."
+            ></span>
+          </div>
+          <div>
+            <label for="date-deceased">Overlijdensdatum:</label>
+            <input
+              type="date"
+              id="date-deceased"
+              name="date-deceased"
+              placeholder="yyyy-mm-dd"
+              pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
+              title="Vul een geldige datum (yyyy-mm-dd) uit het verleden in."
+              min="1900-01-01"
+              data-max="today"
+              required
+              aria-required="true"
+              aria-describedby="date-deceased-desc"
+            />
+            <span
+              id="date-deceased-desc"
+              data-error-message="Vul een geldige datum (yyyy-mm-dd) uit het verleden in."
+            ></span>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>1b.</legend>
+          <fieldset>
+            <legend>
+              Was de overledene getrouwd of had de overledene een geregistreerd
+              partner op het moment van overlijden?
+            </legend>
+            <span
+              data-tooltip="Vul deze vraag in als de overledene op de datum van overlijden getrouwd was of een geregistreerd partner had.
+              <p>U hoeft vraag 1b niet in te vullen als:</p>
+                  <ul>
+                    <li>
+                      de overledene een notarieel samenlevingscontract had met
+                      diens partner
+                    </li>
+                    <li>
+                      de overledene samen met een partner of huisgenoot op
+                      hetzelfde adres stond ingeschreven in de Basisregistratie
+                      Personen (BRP) van de gemeente
+                    </li>
+                  </ul>"
+            >
+              <span role="status" aria-live="polite">
+                <div>
+                  Vul deze vraag in als de overledene op de datum van overlijden
+                  getrouwd was of een geregistreerd partner had.
+
+                  <p>U hoeft vraag 1b niet in te vullen als:</p>
+                  <ul>
+                    <li>
+                      de overledene een notarieel samenlevingscontract had met
+                      diens partner
+                    </li>
+                    <li>
+                      de overledene samen met een partner of huisgenoot op
+                      hetzelfde adres stond ingeschreven in de Basisregistratie
+                      Personen (BRP) van de gemeente
+                    </li>
+                  </ul>
+                </div>
+              </span>
+            </span>
+            <div>
+              <input
+                type="radio"
+                id="married-no"
+                name="married"
+                required
+                aria-required="true"
+                checked
+              />
+              <label for="married-no">Nee.</label>
+              <a href="1-gegevens-van-de-overledene.html#1c">
+                Ga verder met vraag 1c.
+              </a>
+            </div>
+            <div>
+              <input type="radio" id="married-yes" name="married" />
+              <label for="married-yes">Ja.</label>
+            </div>
+          </fieldset>
+          <fieldset data-hide="married-no">
+            <legend>
+              Hadden de overledene en diens echtgenoot of geregistreerd partner
+              huwelijkse of partner schaps- voorwaarden laten vastleggen in een
+              notariële akte?
+            </legend>
+            <div>
+              <input
+                type="radio"
+                id="married-agreement-no"
+                name="married-agreement"
+                required
+                aria-required="true"
+                checked
+              />
+              <label for="married-agreement-no">Nee.</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                id="married-agreement-yes"
+                name="married-agreement"
+              />
+              <label for="married-agreement-yes">
+                Ja. Stuur een kopie van de akte mee met de aangifte.
+              </label>
+            </div>
+            <div data-hide="married-agreement-no">
+              <label for="married-agreement-file">Kopie van de akte:</label>
+              <input
+                type="file"
+                id="married-agreement-file"
+                name="married-agreement-file"
+                aria-describedby="married-agreement-file-desc"
+                data-required
+              />
+              <span
+                id="married-agreement-file-desc"
+                data-error-message="Dit veld is verplicht."
+              ></span>
+            </div>
+          </fieldset>
+          <fieldset data-hide="married-no">
+            <legend>
+              Hadden de overledene en diens partner een finaal verrekenbeding?
+            </legend>
+            <span
+              data-tooltip="Was de overledene getrouwd op huwelijkse voorwaarden? Of
+                    hadden de overledene en de partner een geregistreerd
+                    partnerschap en hadden zij partnerschapsvoorwaarden? Dan kan
+                    het zijn dat overledene en partner samen een finaal
+                    verrekenbeding hebben. Dit betekent dat bij overlijden het
+                    gezamenlijke vermogen verdeeld wordt op dezelfde manier als
+                    wanneer ze in gemeenschap van goederen waren getrouwd. Of op
+                    dezelfde manier als wanneer zij geen partnerschaps
+                    voorwaarden hadden. Sommige zaken kunnen buiten deze
+                    verdeling gehouden worden, zoals het vermogen dat 1 van de
+                    partners al had voordat zij gingen trouwen.
+                  <p>
+                    U vindt de informatie over een finaal verrekenbeding in de
+                    huwelijkse of partnerschapsvoorwaarden.
+                  </p>"
+            >
+              <span role="status" aria-live="polite">
+                <div>
+                  Was de overledene getrouwd op huwelijkse voorwaarden? Of
+                  hadden de overledene en de partner een geregistreerd
+                  partnerschap en hadden zij partnerschapsvoorwaarden? Dan kan
+                  het zijn dat overledene en partner samen een finaal
+                  verrekenbeding hebben. Dit betekent dat bij overlijden het
+                  gezamenlijke vermogen verdeeld wordt op dezelfde manier als
+                  wanneer ze in gemeenschap van goederen waren getrouwd. Of op
+                  dezelfde manier als wanneer zij geen partnerschaps voorwaarden
+                  hadden. Sommige zaken kunnen buiten deze verdeling gehouden
+                  worden, zoals het vermogen dat 1 van de partners al had
+                  voordat zij gingen trouwen.
+                  <p>
+                    U vindt de informatie over een finaal verrekenbeding in de
+                    huwelijkse of partnerschapsvoorwaarden.
+                  </p>
+                </div>
+              </span>
+            </span>
+            <div>
+              <input
+                type="radio"
+                id="married-verrekenbeding-no"
+                name="married-verrekenbeding"
+                required
+                aria-required="true"
+                checked
+              />
+              <label for="married-verrekenbeding-no">Nee.</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                id="married-verrekenbeding-yes"
+                name="married-verrekenbeding"
+              />
+              <label for="married-verrekenbeding-yes">Ja.</label>
+            </div>
+          </fieldset>
+          <div data-hide="married-no">
+            <label for="date-married">
+              Datum huwelijkse of partnerschapsvoorwaarden:
+            </label>
+            <input
+              type="date"
+              id="date-married"
+              name="date-married"
+              placeholder="yyyy-mm-dd"
+              pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
+              title="Vul een geldige datum (yyyy-mm-dd) uit het verleden in."
+              min="1900-01-01"
+              data-max="today"
+              aria-describedby="date-married-desc"
+              data-required
+            />
+            <span
+              id="date-married-desc"
+              data-error-message="Vul een geldige datum (yyyy-mm-dd) uit het verleden in."
+            ></span>
+          </div>
+        </fieldset>
+        <fieldset id="1c">
+          <legend>1c.</legend>
+          <fieldset>
+            <legend>Had de overledene kinderen?</legend>
+            <div>
+              <input
+                type="radio"
+                id="children-no"
+                name="children"
+                required
+                aria-required="true"
+                checked
+              />
+              <label for="children-no">Nee.</label>
+              <a href="1-gegevens-van-de-overledene.html#1d">
+                Ga verder met vraag 1d.
+              </a>
+            </div>
+            <div>
+              <input type="radio" id="children-yes" name="children" />
+              <label for="children-yes">Ja.</label>
+            </div>
+          </fieldset>
+          <fieldset data-hide="children-no">
+            <legend>
+              Is 1 van deze kinderen eerder overleden dan de overledene voor wie
+              u nu aangifte doet?
+            </legend>
+            <div>
+              <input
+                type="radio"
+                id="child-deceased-no"
+                name="child-deceased"
+                required
+                aria-required="true"
+                checked
+              />
+              <label for="child-deceased-no">Nee.</label>
+              <a href="1-gegevens-van-de-overledene.html#1d">
+                Ga verder met vraag 1d.
+              </a>
+            </div>
+            <div>
+              <input
+                type="radio"
+                id="child-deceased-yes"
+                name="child-deceased"
+              />
+              <label for="child-deceased-yes">Ja.</label>
+            </div>
+          </fieldset>
+          <fieldset data-hide="child-deceased-no">
+            <legend>Had dit overleden kind zelf kinderen?</legend>
+            <div>
+              <input
+                type="radio"
+                id="child-deceased-children-no"
+                name="child-deceased-children"
+                required
+                aria-required="true"
+                checked
+              />
+              <label for="child-deceased-children-no">Nee.</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                id="child-deceased-children-yes"
+                name="child-deceased-children"
+              />
+              <label for="child-deceased-children-yes">Ja.</label>
+            </div>
+          </fieldset>
+        </fieldset>
+        <fieldset id="1d">
+          <legend>1d.</legend>
+          <fieldset>
+            <legend>Had de overledene een testament?</legend>
+            <div>
+              <input
+                type="radio"
+                id="testament-no"
+                name="testament"
+                required
+                aria-required="true"
+                checked
+              />
+              <label for="testament-no">Nee.</label>
+              <a href="1-gegevens-van-de-overledene.html#submit">
+                Verstuur dit formulier en ga verder met de volgende stap.
+              </a>
+            </div>
+            <div>
+              <input
+                type="radio"
+                id="testament-yes"
+                name="testament"
+                aria-describedby="testament-desc"
+              />
+              <label for="testament-yes">Ja.</label>
+              <span id="testament-desc">
+                Vul de gegevens in van de notaris die het testament heeft
+                opgemaakt en de datum van het testament.
+              </span>
+            </div>
+          </fieldset>
+          <fieldset data-hide="testament-no">
+            <legend>Gegevens van de notaris</legend>
+            <div>
+              <div>
+                <label for="notary-number">Protocolnummer notaris:</label>
+                <span
+                  data-tooltip="Het nummer van een notaris in functie vindt u op <a href='registernotariaat.nl'>registernotariaat.nl</a> in het <b>Register notariaat</b>."
+                >
+                  <span role="status" aria-live="polite">
+                    <div>
+                      Het nummer van een notaris in functie vindt u op
+                      <a href="registernotariaat.nl">registernotariaat.nl</a> in
+                      het <b>Register notariaat</b>.
+                    </div>
+                  </span>
+                </span>
+              </div>
+              <input
+                type="text"
+                id="notary-number"
+                name="notary-number"
+                inputmode="numeric"
+                pattern="[0-9]{6}"
+                title="Vul een protocolnummer in van 6 nummers."
+                minlength="6"
+                aria-describedby="notary-number-desc"
+                data-required
+              />
+              <span
+                id="notary-number-desc"
+                data-error-message="Vul een protocolnummer in van 6 nummers."
+              ></span>
+            </div>
+            <div>
+              <label for="notary-first-letters">Voorletter(s):</label>
+              <input
+                type="text"
+                id="notary-first-letters"
+                name="notary-first-letters"
+                aria-describedby="notary-first-letters-desc"
+                data-required
+              />
+              <span
+                id="notary-first-letters-desc"
+                data-error-message="Dit veld is verplicht."
+              ></span>
+            </div>
+            <div>
+              <label for="notary-family-affix">Tussenvoegsel(s):</label>
+              <input
+                type="text"
+                id="notary-family-affix"
+                name="notary-family-affix"
+                aria-describedby="notary-family-affix-desc"
+              />
+              <span
+                id="notary-family-affix-desc"
+                data-error-message="Dit veld is verplicht."
+              ></span>
+            </div>
+            <div>
+              <label for="notary-surname">Achternaam:</label>
+              <input
+                type="text"
+                id="notary-surname"
+                name="notary-surname"
+                aria-describedby="notary-surname-desc"
+                data-required
+              />
+              <span
+                id="notary-surname-desc"
+                data-error-message="Dit veld is verplicht."
+              ></span>
+            </div>
+            <div>
+              <label for="notary-place">Vestigingsplaats:</label>
+              <input
+                type="text"
+                id="notary-place"
+                name="notary-place"
+                aria-describedby="notary-place-desc"
+                data-required
+              />
+              <span
+                id="notary-place-desc"
+                data-error-message="Dit veld is verplicht."
+              ></span>
+            </div>
+            <div>
+              <label for="date-testament">
+                Datum van het testament of van de laatste wijziging:
+              </label>
+              <input
+                type="date"
+                id="date-testament"
+                name="date-testament"
+                placeholder="yyyy-mm-dd"
+                pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
+                title="Vul een geldige datum (yyyy-mm-dd) uit het verleden in."
+                min="1900-01-01"
+                data-max="today"
+                aria-describedby="date-testament-desc"
+                data-required
+              />
+              <span
+                id="date-testament-desc"
+                data-error-message="Vul een geldige datum (yyyy-mm-dd) uit het verleden in."
+              ></span>
+            </div>
+          </fieldset>
+        </fieldset>
+        <button type="reset">Reset</button>
+        <button id="submit" type="submit">Submit</button>
+      </form>
+    </main>
+    <footer id="footer">
+      <nav aria-label="Paginatie">
+        <span><a href="index.html" data-href="index.html">Vorige</a></span>
+        <span>
+          <a
+            href="2-gegevens-gemachtigde.html"
+            data-href="2-gegevens-gemachtigde.html"
+          >
+            Volgende
+          </a>
+        </span>
+      </nav>
+      &copy; 2024
+    </footer>
+    <script src="assets/js/form.js"></script>
+    <script src="assets/js/validation.js"></script>
+    <script src="assets/js/pagination.js"></script>
+  </body>
+</html>
