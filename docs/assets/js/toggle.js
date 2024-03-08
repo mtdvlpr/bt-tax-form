@@ -45,8 +45,9 @@ function initValidation() {
 
     // No is checked, so hide the section
     if (controllerEl) {
-      controllerEl.removeEventListener("change", onChange);
-      controllerEl.addEventListener("change", onChange);
+      controllerEl.addEventListener("change", (e) => {
+        toggleSection(controller, !e.target.value);
+      });
     }
 
     // Yes is checked, so show the section
@@ -54,18 +55,11 @@ function initValidation() {
       `${controller.replace("-no", "-yes")}`
     );
     if (counterpart) {
-      counterpart.removeEventListener("change", onChange);
-      counterpart.addEventListener("change", onChange);
+      counterpart.addEventListener("change", (e) => {
+        toggleSection(controller, !!e.target.value);
+      });
     }
   });
-}
-
-/**
- * When the controller changes, toggle the section
- * @param {Event} e
- */
-function onChange(e) {
-  toggleSection(controller, !e.target.value);
 }
 
 /**
