@@ -4,7 +4,7 @@ body {
 }
 
 /* Show all hidden elements */
-[data-hide],
+:not(fieldset > div)[data-hide],
 header img {
   display: block !important;
 }
@@ -33,15 +33,16 @@ a {
 /* Align labels and inputs next to each other */
 fieldset > div > div,
 fieldset > div > label {
-  display: flex;
+  display: flex !important;
   align-items: center;
 }
 
-fieldset > div {
-  display: flex;
+form fieldset > div:not(:has(> input[type="radio"], > input[type="file"])) {
+  display: flex !important;
   justify-content: space-between;
 }
 
-fieldset > div:has(> input[type="radio"]) {
-  display: block;
+/* Show radio input labels right next to input */
+fieldset > div > input + label {
+  display: inline !important;
 }
