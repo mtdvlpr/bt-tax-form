@@ -1,20 +1,49 @@
 /* Validation styles */
 
 /* Input validation */
-input:user-valid {
+[data-js-enabled="false"] input:valid {
   border: 2px solid var(--success-color);
 }
 
-input:user-invalid {
+[data-js-enabled="false"] input:invalid {
   border: 2px solid var(--error-color);
 }
 
-input:user-invalid + span::before {
+[data-js-enabled="false"] input:invalid + span::before {
   content: attr(data-error-message);
   color: var(--error-color);
 }
 
-input:user-valid + span::before {
+[data-js-enabled="false"] input:valid + span::before {
   content: "✓";
   color: var(--success-color);
+}
+
+@supports selector(:user-valid) {
+  input:valid,
+  input:invalid {
+    border: revert;
+  }
+
+  input:user-valid {
+    border: 2px solid var(--success-color);
+  }
+
+  input:user-invalid {
+    border: 2px solid var(--error-color);
+  }
+  input:valid + span::before,
+  input:invalid + span::before {
+    content: "";
+  }
+
+  input:user-valid + span::before {
+    content: "✓";
+    color: var(--success-color);
+  }
+
+  input:user-invalid + span::before {
+    content: attr(data-error-message);
+    color: var(--error-color);
+  }
 }

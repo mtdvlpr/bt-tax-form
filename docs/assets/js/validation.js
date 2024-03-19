@@ -1,3 +1,5 @@
+document.body.setAttribute("data-js-enabled", true);
+
 initPersistedData();
 initErrorMessages();
 
@@ -82,6 +84,7 @@ function setFeedbackMessage(target) {
     }
 
     const valid = target.validity.valid;
+    target.setAttribute("aria-invalid", (!valid).toString());
     const cssMsg = window.getComputedStyle(errorEl, "::before").content;
 
     // Set feedback message if CSS failed
