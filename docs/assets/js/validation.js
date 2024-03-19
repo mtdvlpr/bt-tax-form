@@ -98,7 +98,9 @@ function setFeedbackMessage(target) {
       const color = dark ? "#ff4242" : "#ad0000";
       target.style.border = `2px solid ${color}`;
       errorEl.style.color = color;
-      errorEl.innerText = errorEl.getAttribute("data-error-message");
+      errorEl.innerText = target.validationMessage
+        ? target.validationMessage
+        : errorEl.getAttribute("data-error-message");
     } else {
       target.style.border = "";
       errorEl.style.color = "";

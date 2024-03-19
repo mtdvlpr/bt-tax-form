@@ -20,29 +20,30 @@
 }
 
 @supports selector(:user-valid) {
-  input:valid,
-  input:invalid {
+  [data-js-enabled="false"] input:valid,
+  [data-js-enabled="false"] input:invalid {
     border: revert;
   }
 
-  input:user-valid {
+  [data-js-enabled="false"] input:user-valid {
     border: 2px solid var(--success-color);
   }
 
-  input:user-invalid {
+  [data-js-enabled="false"] input:user-invalid {
     border: 2px solid var(--error-color);
   }
-  input:valid + span::before,
-  input:invalid + span::before {
+
+  [data-js-enabled="false"] input:valid + span::before,
+  [data-js-enabled="false"] input:invalid + span::before {
     content: "";
   }
 
-  input:user-valid + span::before {
+  [data-js-enabled="false"] input:user-valid + span::before {
     content: "✓";
     color: var(--success-color);
   }
 
-  input:user-invalid + span::before {
+  [data-js-enabled="false"] input:user-invalid + span::before {
     content: attr(data-error-message);
     color: var(--error-color);
   }
