@@ -54,15 +54,14 @@ function initValidation() {
     }
 
     // Counterpart is checked, so show the section
-    const counterpart = controller.includes("-no")
-      ? controller.replace("-no", "-yes")
-      : controller.replace("-yes", "-no");
-    const counterpartEl = document.getElementById(counterpart);
-    if (counterpartEl) {
-      counterpartEl.addEventListener("change", (e) => {
+    const counterparts = document.querySelectorAll(
+      `[name=${controllerEl.getAttribute("name")}]:not(#${controller})`
+    );
+    counterparts.forEach((el) => {
+      el.addEventListener("change", (e) => {
         toggleSection(controller, !!e.target.value);
       });
-    }
+    });
   });
 }
 

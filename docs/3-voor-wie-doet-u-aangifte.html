@@ -32,6 +32,79 @@
     <!-- Main content -->
     <main>
       <form action="https://adactio.com/post" method="post">
+        <fieldset>
+          <legend>3a. Voor wie doet u aangifte?</legend>
+          <p>
+            Heeft de overledene in het testament een executeur aangewezen om de
+            erfenis af te handelen? Dan moet de executeur aangifte doen voor
+            alle personen en/of instellingen die iets krijgen uit de
+            nalatenschap (verkrijgers)
+          </p>
+          <fieldset>
+            <legend>Kruis aan welke situatie voor u geldt.</legend>
+            <div>
+              <input
+                type="radio"
+                id="whoami-executor"
+                name="whoami"
+                required
+                aria-required="true"
+              />
+              <label for="whoami-executor">
+                Ik ben <b>executeur</b> en doe aangifte voor alle personen en/of
+                instellingen die iets krijgen uit de nalatenschap (verkrijgers).
+              </label>
+            </div>
+            <div>
+              <input type="radio" id="whoami-heir-delegate" name="whoami" />
+              <label for="whoami-heir-delegate">
+                Ik ben <b>erfgenaam</b> en ben <b>gemachtigd</b> om aangifte te
+                doen voor meerdere personen en/of instellingen die iets krijgen
+                uit de nalatenschap (verkrijgers).
+              </label>
+            </div>
+            <div>
+              <input type="radio" id="whoami-heir-together" name="whoami" />
+              <label for="whoami-heir-together">
+                Ik ben <b>erfgenaam</b> en doe <b>samen</b> met andere
+                erfgenamen aangifte.
+              </label>
+            </div>
+            <div>
+              <input type="radio" id="whoami-heir-alone" name="whoami" />
+              <label for="whoami-heir-alone">
+                Ik ben <b>erfgenaam</b> en doe <b>alleen</b> aangifte voor
+                mijzelf.
+              </label>
+            </div>
+            <div>
+              <input type="radio" id="whoami-delegate" name="whoami" />
+              <label for="whoami-delegate">
+                Ik ben <b>geen erfgenaam</b>, maar ben <b>gemachtigd</b> om
+                aangifte te doen.
+              </label>
+            </div>
+          </fieldset>
+          <div data-hide="whoami-heir-alone">
+            <label for="whoami-nr">
+              Aantal verkrijgers
+              <small>
+                (Bent u zelf ook verkrijger? Tel uzelf dan ook mee)
+              </small>
+            </label>
+            <input
+              type="text"
+              id="whoami-nr"
+              name="whoami-nr"
+              data-required
+              aria-describedby="whoami-nr-desc"
+            />
+            <span
+              id="whoami-nr-desc"
+              data-error-message="Dit veld is verplicht."
+            ></span>
+          </div>
+        </fieldset>
         <button type="reset">Reset</button>
         <button id="submit" type="submit">Submit</button>
       </form>
