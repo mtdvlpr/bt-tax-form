@@ -48,9 +48,44 @@
             van de notaris.
           </legend>
           <div>
-            <label for="bsn-delegate">
-              Burgerservicenummer/RSIN gemachtigde
-            </label>
+            <div>
+              <label for="bsn-delegate">
+                Burgerservicenummer/RSIN gemachtigde
+              </label>
+              <span
+                data-tooltip="Het bsn staat op 1 van de volgende documenten:
+                    <ul>
+                      <li>
+                        Nederlands identiteitsbewijs, zoals een paspoort,
+                        identiteitskaart of rijbewijs
+                      </li>
+                      <li>
+                        een aanslag inkomstenbelasting of een aangiftebrief
+                      </li>
+                      <li>
+                        Nederlandse loonstrook, jaaropgaaf, zorgpas of zorgpolis
+                      </li>
+                    </ul>"
+              >
+                <span role="status" aria-live="polite">
+                  <div>
+                    Het bsn staat op 1 van de volgende documenten:
+                    <ul>
+                      <li>
+                        Nederlands identiteitsbewijs, zoals een paspoort,
+                        identiteitskaart of rijbewijs
+                      </li>
+                      <li>
+                        een aanslag inkomstenbelasting of een aangiftebrief
+                      </li>
+                      <li>
+                        Nederlandse loonstrook, jaaropgaaf, zorgpas of zorgpolis
+                      </li>
+                    </ul>
+                  </div>
+                </span>
+              </span>
+            </div>
             <input
               type="text"
               id="bsn-delegate"
@@ -68,7 +103,19 @@
             ></span>
           </div>
           <div>
-            <label for="becon-delegate">Beconnummer adviseur</label>
+            <div>
+              <label for="becon-delegate">Beconnummer adviseur</label>
+              <span
+                data-tooltip="Elke belastingconsulent heeft een beconnummer. U vindt het beconnummer bijvoorbeeld op de factuur."
+              >
+                <span role="status" aria-live="polite">
+                  <div>
+                    Elke belastingconsulent heeft een beconnummer. U vindt het
+                    beconnummer bijvoorbeeld op de factuur.
+                  </div>
+                </span>
+              </span>
+            </div>
             <input
               type="text"
               id="becon-delegate"

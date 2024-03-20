@@ -36,6 +36,7 @@ fieldset > div > textarea + label {
   border-radius: 50%;
   border: 0;
   padding: 1px 4px;
+  margin-left: 0.2em;
   background: var(--text-color);
   font-family: serif;
   font-weight: bold;
