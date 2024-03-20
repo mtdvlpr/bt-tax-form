@@ -1,5 +1,5 @@
 /* Hide unnecessary fields */
-@supports selector(:has(#married-no:checked)) {
+@supports selector(:has(input[type="radio"]:checked)) {
   :root:has(#married-no:checked) [data-hide="married-no"] {
     display: none;
   }

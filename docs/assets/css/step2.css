@@ -1,5 +1,5 @@
 /* Hide unnecessary fields */
-@supports selector(:has(#foreign-address-no:checked)) {
+@supports selector(:has(input[type="radio"]:checked)) {
   :root:has(#foreign-address-no:checked) [data-hide="foreign-address-no"] {
     display: none;
   }

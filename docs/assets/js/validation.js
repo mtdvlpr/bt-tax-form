@@ -91,7 +91,7 @@ function setFeedbackMessage(target, reset = false) {
     if (validationType === "bsn") {
       if (target.value && !validateBsn(target.value) && target.validity.valid) {
         target.setCustomValidity(
-          "Dit is geen geldig BSN nummer. Controleer het nummer en probeer het opnieuw."
+          "Dit is geen geldige bsn. Is er een typefout gemaakt?"
         );
       }
     }

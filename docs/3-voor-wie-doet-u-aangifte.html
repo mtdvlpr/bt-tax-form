@@ -94,9 +94,11 @@
               </small>
             </label>
             <input
-              type="text"
+              type="number"
               id="whoami-nr"
               name="whoami-nr"
+              min="1"
+              inputmode="numeric"
               data-required
               aria-describedby="whoami-nr-desc"
             />
@@ -104,6 +106,617 @@
               id="whoami-nr-desc"
               data-error-message="Dit veld is verplicht."
             ></span>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>3b.</legend>
+          <fieldset>
+            <legend>
+              Zijn er verkrijgers voor wie u <b>geen</b> aangifte doet?
+            </legend>
+            <div>
+              <input
+                type="radio"
+                id="excluded-no"
+                name="excluded"
+                required
+                aria-required="true"
+                checked
+              />
+              <label for="excluded-no">Nee.</label>
+              <a href="3-voor-wie-doet-u-aangifte.html#3c">
+                Ga naar vraag 3c.
+              </a>
+            </div>
+            <div>
+              <input type="radio" id="excluded-yes" name="excluded" />
+              <label for="excluded-yes">
+                Ja. Vul hieronder de gegevens in van de verkrijgers waarvoor u
+                geen aangifte doet.
+              </label>
+            </div>
+          </fieldset>
+          <fieldset name="receiver-1">
+            <legend>Verkrijger 1</legend>
+            <div>
+              <div>
+                <label for="bsn-receiver-1">Burgerservicenummer/RSIN</label>
+                <span
+                  data-tooltip="Het bsn staat op 1 van de volgende documenten:
+                    <ul>
+                      <li>
+                        Nederlands identiteitsbewijs, zoals een paspoort,
+                        identiteitskaart of rijbewijs
+                      </li>
+                      <li>
+                        een aanslag inkomstenbelasting of een aangiftebrief
+                      </li>
+                      <li>
+                        Nederlandse loonstrook, jaaropgaaf, zorgpas of zorgpolis
+                      </li>
+                    </ul>"
+                >
+                  <span role="status" aria-live="polite">
+                    <div>
+                      Het bsn staat op 1 van de volgende documenten:
+                      <ul>
+                        <li>
+                          Nederlands identiteitsbewijs, zoals een paspoort,
+                          identiteitskaart of rijbewijs
+                        </li>
+                        <li>
+                          een aanslag inkomstenbelasting of een aangiftebrief
+                        </li>
+                        <li>
+                          Nederlandse loonstrook, jaaropgaaf, zorgpas of
+                          zorgpolis
+                        </li>
+                      </ul>
+                    </div>
+                  </span>
+                </span>
+              </div>
+              <input
+                type="text"
+                id="bsn-receiver-1"
+                name="bsn-receiver-1"
+                inputmode="numeric"
+                pattern="[0-9]{8,9}"
+                title="Vul een geldig burgerservicenummer in van 8 of 9 nummers"
+                minlength="8"
+                data-validate="bsn"
+                aria-describedby="bsn-receiver-1-desc"
+              />
+              <span
+                id="bsn-receiver-1-desc"
+                data-error-message="Vul een geldig burgerservicenummer in van 8 of 9 nummers."
+              ></span>
+            </div>
+            <div>
+              <label for="first-letters-receiver-1">Voorletter(s)</label>
+              <input
+                type="text"
+                id="first-letters-receiver-1"
+                name="first-letters-receiver-1"
+              />
+            </div>
+            <div>
+              <label for="family-affix-receiver-1">Tussenvoegsel(s)</label>
+              <input
+                type="text"
+                id="family-affix-receiver-1"
+                name="family-affix-receiver-1"
+              />
+            </div>
+            <div>
+              <label for="surname-receiver-1">Achternaam/Instelling</label>
+              <input
+                type="text"
+                id="surname-receiver-1"
+                name="surname-receiver-1"
+                required
+                aria-required="true"
+                aria-describedby="surname-receiver-1-desc"
+              />
+              <span
+                id="surname-receiver-1-desc"
+                data-error-message="Dit veld is verplicht."
+              ></span>
+            </div>
+            <fieldset>
+              <legend>
+                Krijgt deze verkrijger waarvoor u geen aangifte doet het hele
+                vermogen?
+              </legend>
+              <div>
+                <input
+                  type="radio"
+                  id="gets-all-receiver-1-no"
+                  name="gets-all-receiver-1"
+                  required
+                  aria-required="true"
+                />
+                <label for="gets-all-receiver-1-no">Nee.</label>
+              </div>
+              <div>
+                <input
+                  type="radio"
+                  id="gets-all-receiver-1-yes"
+                  name="excluded"
+                />
+                <label for="gets-all-receiver-1-yes">Ja.</label>
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend>
+                Doet deze verkrijger een beroep op dienst legitieme portie
+                (wettelijke erfdeel)?
+              </legend>
+              <div>
+                <input
+                  type="radio"
+                  id="wants-some-receiver-1-no"
+                  name="wants-some-receiver-1"
+                  required
+                  aria-required="true"
+                />
+                <label for="wants-some-receiver-1-no">Nee.</label>
+              </div>
+              <div>
+                <input
+                  type="radio"
+                  id="wants-some-receiver-1-yes"
+                  name="excluded"
+                />
+                <label for="wants-some-receiver-1-yes">Ja.</label>
+              </div>
+            </fieldset>
+            <a href="3-voor-wie-doet-u-aangifte.html#3c">
+              Zijn alle verkrijgers ingevuld? Ga naar vraag 3c.
+            </a>
+          </fieldset>
+          <fieldset name="receiver-2">
+            <legend>Verkrijger 2</legend>
+            <div>
+              <div>
+                <label for="bsn-receiver-2">Burgerservicenummer/RSIN</label>
+                <span
+                  data-tooltip="Het bsn staat op 1 van de volgende documenten:
+                    <ul>
+                      <li>
+                        Nederlands identiteitsbewijs, zoals een paspoort,
+                        identiteitskaart of rijbewijs
+                      </li>
+                      <li>
+                        een aanslag inkomstenbelasting of een aangiftebrief
+                      </li>
+                      <li>
+                        Nederlandse loonstrook, jaaropgaaf, zorgpas of zorgpolis
+                      </li>
+                    </ul>"
+                >
+                  <span role="status" aria-live="polite">
+                    <div>
+                      Het bsn staat op 1 van de volgende documenten:
+                      <ul>
+                        <li>
+                          Nederlands identiteitsbewijs, zoals een paspoort,
+                          identiteitskaart of rijbewijs
+                        </li>
+                        <li>
+                          een aanslag inkomstenbelasting of een aangiftebrief
+                        </li>
+                        <li>
+                          Nederlandse loonstrook, jaaropgaaf, zorgpas of
+                          zorgpolis
+                        </li>
+                      </ul>
+                    </div>
+                  </span>
+                </span>
+              </div>
+              <input
+                type="text"
+                id="bsn-receiver-2"
+                name="bsn-receiver-2"
+                inputmode="numeric"
+                pattern="[0-9]{8,9}"
+                title="Vul een geldig burgerservicenummer in van 8 of 9 nummers"
+                minlength="8"
+                data-validate="bsn"
+                aria-describedby="bsn-receiver-2-desc"
+              />
+              <span
+                id="bsn-receiver-2-desc"
+                data-error-message="Vul een geldig burgerservicenummer in van 8 of 9 nummers."
+              ></span>
+            </div>
+            <div>
+              <label for="first-letters-receiver-2">Voorletter(s)</label>
+              <input
+                type="text"
+                id="first-letters-receiver-2"
+                name="first-letters-receiver-2"
+                aria-describedby="first-letters-receiver-2-desc"
+              />
+            </div>
+            <div>
+              <label for="family-affix-receiver-2">Tussenvoegsel(s)</label>
+              <input
+                type="text"
+                id="family-affix-receiver-2"
+                name="family-affix-receiver-2"
+              />
+            </div>
+            <div>
+              <label for="surname-receiver-2">Achternaam/Instelling</label>
+              <input
+                type="text"
+                id="surname-receiver-2"
+                name="surname-receiver-2"
+                data-required
+                aria-describedby="surname-receiver-2-desc"
+              />
+              <span
+                id="surname-receiver-2-desc"
+                data-error-message="Dit veld is verplicht."
+              ></span>
+            </div>
+            <fieldset>
+              <legend>
+                Krijgt deze verkrijger waarvoor u geen aangifte doet het hele
+                vermogen?
+              </legend>
+              <div>
+                <input
+                  type="radio"
+                  id="gets-all-receiver-2-no"
+                  name="gets-all-receiver-2"
+                  required
+                  aria-required="true"
+                />
+                <label for="gets-all-receiver-2-no">Nee.</label>
+              </div>
+              <div>
+                <input
+                  type="radio"
+                  id="gets-all-receiver-2-yes"
+                  name="excluded"
+                />
+                <label for="gets-all-receiver-2-yes">Ja.</label>
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend>
+                Doet deze verkrijger een beroep op dienst legitieme portie
+                (wettelijke erfdeel)?
+              </legend>
+              <div>
+                <input
+                  type="radio"
+                  id="wants-some-receiver-2-no"
+                  name="wants-some-receiver-2"
+                  required
+                  aria-required="true"
+                />
+                <label for="wants-some-receiver-2-no">Nee.</label>
+              </div>
+              <div>
+                <input
+                  type="radio"
+                  id="wants-some-receiver-2-yes"
+                  name="excluded"
+                />
+                <label for="wants-some-receiver-2-yes">Ja.</label>
+              </div>
+            </fieldset>
+            <a href="3-voor-wie-doet-u-aangifte.html#3c">
+              Zijn alle verkrijgers ingevuld? Ga naar vraag 3c.
+            </a>
+          </fieldset>
+          <fieldset name="receiver-3">
+            <legend>Verkrijger 3</legend>
+            <div>
+              <div>
+                <label for="bsn-receiver-3">Burgerservicenummer/RSIN</label>
+                <span
+                  data-tooltip="Het bsn staat op 1 van de volgende documenten:
+                    <ul>
+                      <li>
+                        Nederlands identiteitsbewijs, zoals een paspoort,
+                        identiteitskaart of rijbewijs
+                      </li>
+                      <li>
+                        een aanslag inkomstenbelasting of een aangiftebrief
+                      </li>
+                      <li>
+                        Nederlandse loonstrook, jaaropgaaf, zorgpas of zorgpolis
+                      </li>
+                    </ul>"
+                >
+                  <span role="status" aria-live="polite">
+                    <div>
+                      Het bsn staat op 1 van de volgende documenten:
+                      <ul>
+                        <li>
+                          Nederlands identiteitsbewijs, zoals een paspoort,
+                          identiteitskaart of rijbewijs
+                        </li>
+                        <li>
+                          een aanslag inkomstenbelasting of een aangiftebrief
+                        </li>
+                        <li>
+                          Nederlandse loonstrook, jaaropgaaf, zorgpas of
+                          zorgpolis
+                        </li>
+                      </ul>
+                    </div>
+                  </span>
+                </span>
+              </div>
+              <input
+                type="text"
+                id="bsn-receiver-3"
+                name="bsn-receiver-3"
+                inputmode="numeric"
+                pattern="[0-9]{8,9}"
+                title="Vul een geldig burgerservicenummer in van 8 of 9 nummers"
+                minlength="8"
+                data-validate="bsn"
+                aria-describedby="bsn-receiver-3-desc"
+              />
+              <span
+                id="bsn-receiver-3-desc"
+                data-error-message="Vul een geldig burgerservicenummer in van 8 of 9 nummers."
+              ></span>
+            </div>
+            <div>
+              <label for="first-letters-receiver-3">Voorletter(s)</label>
+              <input
+                type="text"
+                id="first-letters-receiver-3"
+                name="first-letters-receiver-3"
+                aria-describedby="first-letters-receiver-3-desc"
+              />
+            </div>
+            <div>
+              <label for="family-affix-receiver-3">Tussenvoegsel(s)</label>
+              <input
+                type="text"
+                id="family-affix-receiver-3"
+                name="family-affix-receiver-4"
+              />
+            </div>
+            <div>
+              <label for="surname-receiver-3">Achternaam/Instelling</label>
+              <input
+                type="text"
+                id="surname-receiver-3"
+                name="surname-receiver-3"
+                data-required
+                aria-describedby="surname-receiver-3-desc"
+              />
+              <span
+                id="surname-receiver-3-desc"
+                data-error-message="Dit veld is verplicht."
+              ></span>
+            </div>
+            <fieldset>
+              <legend>
+                Krijgt deze verkrijger waarvoor u geen aangifte doet het hele
+                vermogen?
+              </legend>
+              <div>
+                <input
+                  type="radio"
+                  id="gets-all-receiver-3-no"
+                  name="gets-all-receiver-3"
+                  required
+                  aria-required="true"
+                />
+                <label for="gets-all-receiver-3-no">Nee.</label>
+              </div>
+              <div>
+                <input
+                  type="radio"
+                  id="gets-all-receiver-3-yes"
+                  name="excluded"
+                />
+                <label for="gets-all-receiver-3-yes">Ja.</label>
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend>
+                Doet deze verkrijger een beroep op dienst legitieme portie
+                (wettelijke erfdeel)?
+              </legend>
+              <div>
+                <input
+                  type="radio"
+                  id="wants-some-receiver-3-no"
+                  name="wants-some-receiver-3"
+                  required
+                  aria-required="true"
+                />
+                <label for="wants-some-receiver-3-no">Nee.</label>
+              </div>
+              <div>
+                <input
+                  type="radio"
+                  id="wants-some-receiver-3-yes"
+                  name="excluded"
+                />
+                <label for="wants-some-receiver-3-yes">Ja.</label>
+              </div>
+            </fieldset>
+            <a href="3-voor-wie-doet-u-aangifte.html#3c">
+              Zijn alle verkrijgers ingevuld? Ga naar vraag 3c.
+            </a>
+          </fieldset>
+          <fieldset name="receiver-4">
+            <legend>Verkrijger 4</legend>
+            <div>
+              <div>
+                <label for="bsn-receiver-4">Burgerservicenummer/RSIN</label>
+                <span
+                  data-tooltip="Het bsn staat op 1 van de volgende documenten:
+                    <ul>
+                      <li>
+                        Nederlands identiteitsbewijs, zoals een paspoort,
+                        identiteitskaart of rijbewijs
+                      </li>
+                      <li>
+                        een aanslag inkomstenbelasting of een aangiftebrief
+                      </li>
+                      <li>
+                        Nederlandse loonstrook, jaaropgaaf, zorgpas of zorgpolis
+                      </li>
+                    </ul>"
+                >
+                  <span role="status" aria-live="polite">
+                    <div>
+                      Het bsn staat op 1 van de volgende documenten:
+                      <ul>
+                        <li>
+                          Nederlands identiteitsbewijs, zoals een paspoort,
+                          identiteitskaart of rijbewijs
+                        </li>
+                        <li>
+                          een aanslag inkomstenbelasting of een aangiftebrief
+                        </li>
+                        <li>
+                          Nederlandse loonstrook, jaaropgaaf, zorgpas of
+                          zorgpolis
+                        </li>
+                      </ul>
+                    </div>
+                  </span>
+                </span>
+              </div>
+              <input
+                type="text"
+                id="bsn-receiver-4"
+                name="bsn-receiver-4"
+                inputmode="numeric"
+                pattern="[0-9]{8,9}"
+                title="Vul een geldig burgerservicenummer in van 8 of 9 nummers"
+                minlength="8"
+                data-validate="bsn"
+                aria-describedby="bsn-receiver-4-desc"
+              />
+              <span
+                id="bsn-receiver-4-desc"
+                data-error-message="Vul een geldig burgerservicenummer in van 8 of 9 nummers."
+              ></span>
+            </div>
+            <div>
+              <label for="first-letters-receiver-4">Voorletter(s)</label>
+              <input
+                type="text"
+                id="first-letters-receiver-4"
+                name="first-letters-receiver-4"
+                aria-describedby="first-letters-receiver-4-desc"
+              />
+            </div>
+            <div>
+              <label for="family-affix-receiver-4">Tussenvoegsel(s)</label>
+              <input
+                type="text"
+                id="family-affix-receiver-4"
+                name="family-affix-receiver-4"
+              />
+            </div>
+            <div>
+              <label for="surname-receiver-4">Achternaam/Instelling</label>
+              <input
+                type="text"
+                id="surname-receiver-4"
+                name="surname-receiver-4"
+                data-required
+                aria-describedby="surname-receiver-4-desc"
+              />
+              <span
+                id="surname-receiver-4-desc"
+                data-error-message="Dit veld is verplicht."
+              ></span>
+            </div>
+            <fieldset>
+              <legend>
+                Krijgt deze verkrijger waarvoor u geen aangifte doet het hele
+                vermogen?
+              </legend>
+              <div>
+                <input
+                  type="radio"
+                  id="gets-all-receiver-4-no"
+                  name="gets-all-receiver-4"
+                  required
+                  aria-required="true"
+                />
+                <label for="gets-all-receiver-4-no">Nee.</label>
+              </div>
+              <div>
+                <input
+                  type="radio"
+                  id="gets-all-receiver-4-yes"
+                  name="excluded"
+                />
+                <label for="gets-all-receiver-4-yes">Ja.</label>
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend>
+                Doet deze verkrijger een beroep op dienst legitieme portie
+                (wettelijke erfdeel)?
+              </legend>
+              <div>
+                <input
+                  type="radio"
+                  id="wants-some-receiver-4-no"
+                  name="wants-some-receiver-4"
+                  required
+                  aria-required="true"
+                />
+                <label for="wants-some-receiver-4-no">Nee.</label>
+              </div>
+              <div>
+                <input
+                  type="radio"
+                  id="wants-some-receiver-4-yes"
+                  name="excluded"
+                />
+                <label for="wants-some-receiver-4-yes">Ja.</label>
+              </div>
+            </fieldset>
+          </fieldset>
+        </fieldset>
+        <fieldset id="3c">
+          <legend>
+            3c. Naar wie wilt u dat wij de aanslag erfbelasting sturen?
+          </legend>
+          <div>
+            <input
+              type="radio"
+              id="send-to-everyone"
+              name="send-to"
+              required
+              aria-required="true"
+              checked
+            />
+            <label for="send-to-everyone">
+              Stuur naar iedere verkrijger van (een deel van) de erfenis een
+              eigen belastingaanslag.
+            </label>
+          </div>
+          <div>
+            <input type="radio" id="send-to-yes" name="send-to-executors" />
+            <label for="send-to-executors">
+              Stuur de belastingaanslag(en) naar de executeur of naar de
+              erfgenaam die ook namens andere personen en/of instellingen die
+              iets krijgen uit de nalatenschap (verkrijgers) aangifte heeft
+              gedaan; dit mag ook de gemachtigde zijn. Wij sturen de aanslag(en)
+              naar het adres dat u bij vraag 2 hebt ingevuld.
+            </label>
           </div>
         </fieldset>
         <button type="reset">Reset</button>

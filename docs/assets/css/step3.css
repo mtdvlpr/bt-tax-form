@@ -1,6 +1,30 @@
 /* Hide unnecessary fields */
-@supports selector(:has(#foreign-address-no:checked)) {
+@supports selector(:has(input[type="radio"]:checked)) {
   :root:has(#whoami-heir-alone:checked) [data-hide="whoami-heir-alone"] {
     display: none;
+  }
+}
+
+/* Hide extra receivers until the previous one is filled */
+@supports selector(:has(fieldset:user-valid)) {
+  fieldset[name="receiver-2"],
+  fieldset[name="receiver-3"],
+  fieldset[name="receiver-4"] {
+    display: none;
+  }
+
+  :root:has(fieldset[name="receiver-1"] input[name^="surname"]:user-valid)
+    fieldset[name="receiver-2"] {
+    display: block;
+  }
+
+  :root:has(fieldset[name="receiver-2"] input[name^="surname"]:user-valid)
+    fieldset[name="receiver-3"] {
+    display: block;
+  }
+
+  :root:has(fieldset[name="receiver-3"] input[name^="surname"]:user-valid)
+    fieldset[name="receiver-4"] {
+    display: block;
   }
 }
