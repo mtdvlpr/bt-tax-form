@@ -31,6 +31,7 @@ function initErrorMessages() {
   const resetBtn = document.querySelector('[type="reset"]');
   resetBtn.addEventListener("click", () => {
     inputs.forEach((input) => {
+      setPersistedData(input, true);
       setFeedbackMessage(input, true);
     });
   });
@@ -168,10 +169,10 @@ function retrievePersistedData(el) {
  * Sets persisted data for the given element
  * @param {HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement} el The element to set data for
  */
-function setPersistedData(el) {
+function setPersistedData(el, reset) {
   if (window.localStorage) {
     const type = el.getAttribute("type");
     const value = type === "radio" ? el.checked : el.value;
-    window.localStorage.setItem(el.id, value);
+    window.localStorage.setItem(el.id, reset ? "" : value);
   }
 }
