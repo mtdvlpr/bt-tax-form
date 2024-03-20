@@ -33,6 +33,10 @@ footer {
   text-align: center;
 }
 
+footer p {
+  margin: 0 auto;
+}
+
 p {
   max-width: 60ch;
 }

@@ -4,6 +4,11 @@
     padding-bottom: 2rem;
   }
 
+  /* Prevent fieldsets from breaking across pages */
+  fieldset {
+    page-break-inside: avoid;
+  }
+
   /* Show all hidden elements */
   :not(fieldset > div)[data-hide],
   header img {
