@@ -18,6 +18,23 @@ function initPersistedData() {
  */
 function initErrorMessages() {
   const inputs = document.querySelectorAll("input,select,textarea");
+
+  // Validate all inputs on submit
+  const submitBtn = document.querySelector('[type="submit"]');
+  submitBtn.addEventListener("click", () => {
+    inputs.forEach((input) => {
+      setFeedbackMessage(input);
+    });
+  });
+
+  // Reset validation on reset
+  const resetBtn = document.querySelector('[type="reset"]');
+  resetBtn.addEventListener("click", () => {
+    inputs.forEach((input) => {
+      setFeedbackMessage(input, true);
+    });
+  });
+
   inputs.forEach((input) => {
     // Add blur event listener for all inputs
     input.addEventListener("blur", (e) => {
@@ -67,7 +84,7 @@ function initErrorMessages() {
  * Sets a feedback message on target element
  * @param {HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement} target The target element
  */
-function setFeedbackMessage(target) {
+function setFeedbackMessage(target, reset = false) {
   const errorEl = document.getElementById(`${target.id}-desc`);
   if (errorEl) {
     const validationType = target.getAttribute("data-validate");
@@ -89,12 +106,12 @@ function setFeedbackMessage(target) {
 
     // Set feedback message if CSS failed
     const dark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    if (cssMsg === "none" && valid) {
+    if (cssMsg === "none" && valid && !reset) {
       const color = dark ? "#00ff00" : "green";
       target.style.border = `2px solid ${color}`;
       errorEl.style.color = color;
       errorEl.innerText = "✓";
-    } else if (cssMsg === "none") {
+    } else if (cssMsg === "none" && !reset) {
       const color = dark ? "#ff4242" : "#ad0000";
       target.style.border = `2px solid ${color}`;
       errorEl.style.color = color;

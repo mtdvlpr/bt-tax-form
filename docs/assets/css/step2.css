@@ -1,0 +1,10 @@
+/* Hide unnecessary fields */
+@supports selector(:has(#foreign-address-no:checked)) {
+  :root:has(#foreign-address-no:checked) [data-hide="foreign-address-no"] {
+    display: none;
+  }
+
+  :root:has(#foreign-address-yes:checked) [data-hide="foreign-address-yes"] {
+    display: none;
+  }
+}

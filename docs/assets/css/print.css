@@ -19,6 +19,7 @@
   button,
   footer,
   [data-tooltip],
+  [data-hide-print],
   [data-error-message],
   div:has(> input[type="file"]) {
     display: none !important;
