@@ -1,0 +1,6 @@
+/* Hide unnecessary fields */
+@supports selector(:has(#foreign-address-no:checked)) {
+  :root:has(#whoami-heir-alone:checked) [data-hide="whoami-heir-alone"] {
+    display: none;
+  }
+}

@@ -64,18 +64,13 @@ function initErrorMessages() {
     if (type === "radio") {
       input.addEventListener("change", (e) => {
         setPersistedData(e.target);
-        const id = e.target.id;
-        if (id.includes("-no")) {
-          const counterpart = document.getElementById(
-            id.replace("-no", "-yes")
-          );
-          setPersistedData(counterpart);
-        } else if (id.includes("-yes")) {
-          const counterpart = document.getElementById(
-            id.replace("-yes", "-no")
-          );
-          setPersistedData(counterpart);
-        }
+
+        const counterparts = document.querySelectorAll(
+          `[name=${e.target.getAttribute("name")}]:not(#${e.target.id})`
+        );
+        counterparts.forEach((el) => {
+          setPersistedData(el);
+        });
       });
     }
   });
