@@ -1,6 +1,6 @@
 /**
  * Map of controller names to their input elements
- * @type {Object<string, {parent?: string; inputs: HTMLInputElement[]}>}
+ * @type {Object<string, {parent?: string; inputs: (HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement)[]}>}
  */
 const inputMap = {};
 
@@ -23,9 +23,12 @@ function initValidation() {
 
   controllers.forEach((controller) => {
     // Fetch all inputs for each controller
-    const hiddenInputs = document.querySelectorAll(
-      `[data-hide="${controller}"] > input, [data-hide="${controller}"] :not([data-hide]) > input`
+    const inputTypes = ["input", "select", "textarea"];
+    const query = inputTypes.map(
+      (type) =>
+        `[data-hide="${controller}"] > ${type}, [data-hide="${controller}"] :not([data-hide]) > ${type}`
     );
+    const hiddenInputs = document.querySelectorAll(`${query.join(", ")}`);
     const container = document.querySelector(`[data-hide="${controller}"]`);
     const containerParent = container ? container.parentElement : null;
     const ancestorContainer = containerParent
@@ -43,19 +46,20 @@ function initValidation() {
     // Toggle the section based on the initial state of the controller
     toggleSection(controller, !controllerEl.checked);
 
-    // No is checked, so hide the section
+    // Controller is checked, so hide the section
     if (controllerEl) {
       controllerEl.addEventListener("change", (e) => {
         toggleSection(controller, !e.target.value);
       });
     }
 
-    // Yes is checked, so show the section
-    const counterpart = document.getElementById(
-      `${controller.replace("-no", "-yes")}`
-    );
-    if (counterpart) {
-      counterpart.addEventListener("change", (e) => {
+    // Counterpart is checked, so show the section
+    const counterpart = controller.includes("-no")
+      ? controller.replace("-no", "-yes")
+      : controller.replace("-yes", "-no");
+    const counterpartEl = document.getElementById(counterpart);
+    if (counterpartEl) {
+      counterpartEl.addEventListener("change", (e) => {
         toggleSection(controller, !!e.target.value);
       });
     }
@@ -94,7 +98,7 @@ function toggleSection(controller, show = false) {
 
 /**
  * Sets the required attribute on the given element
- * @param {HTMLInputElement} el The element to set the required attribute on
+ * @param {HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement} el The element to set the required attribute on
  * @param {boolean} required Whether the element should be required or not
  */
 function setRequired(el, required = false) {
@@ -106,7 +110,7 @@ function setRequired(el, required = false) {
 
 /**
  * Sets the disabled attribute on the given element
- * @param {HTMLInputElement} el The element to set the disabled attribute on
+ * @param {HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement} el The element to set the disabled attribute on
  * @param {boolean} required Whether the element should be disabled or not
  */
 function setDisabled(el, disabled = false) {
@@ -118,7 +122,7 @@ function setDisabled(el, disabled = false) {
 
 /**
  * Resets the elements value to its default
- * @param {HTMLInputElement} el The element to reset the value of
+ * @param {HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement} el The element to reset the value of
  */
 function resetValue(el) {
   if (el) {

@@ -7,7 +7,7 @@ initErrorMessages();
  * Initializes persisted data
  */
 function initPersistedData() {
-  const inputs = document.querySelectorAll("input");
+  const inputs = document.querySelectorAll("input,select,textarea");
   inputs.forEach((input) => {
     retrievePersistedData(input);
   });
@@ -17,7 +17,7 @@ function initPersistedData() {
  * Initializes error messages for form validation
  */
 function initErrorMessages() {
-  const inputs = document.querySelectorAll("input");
+  const inputs = document.querySelectorAll("input,select,textarea");
   inputs.forEach((input) => {
     // Add blur event listener for all inputs
     input.addEventListener("blur", (e) => {
@@ -28,15 +28,15 @@ function initErrorMessages() {
     const type = input.getAttribute("type");
 
     // Set the dynamic max attributes for date inputs
-    if (type == "date") {
+    if (type == "date" && input.getAttribute("data-max") === "today") {
       let today = new Date();
       const offset = today.getTimezoneOffset();
       today = new Date(today.getTime() - offset * 60 * 1000);
       input.max = today.toISOString().split("T")[0];
     }
 
-    // Add extra change event listener for date and file inputs
-    if (type === "date" || type === "file") {
+    // Add extra change event listener for inputs that require a selection
+    if (type === "date" || type === "file" || input.tagName === "SELECT") {
       input.addEventListener("change", (e) => {
         setFeedbackMessage(e.target);
       });
@@ -65,7 +65,7 @@ function initErrorMessages() {
 
 /**
  * Sets a feedback message on target element
- * @param {HTMLInputElement} target The target element
+ * @param {HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement} target The target element
  */
 function setFeedbackMessage(target) {
   const errorEl = document.getElementById(`${target.id}-desc`);
@@ -76,15 +76,15 @@ function setFeedbackMessage(target) {
     }
 
     if (validationType === "bsn") {
-      if (!validateBsn(target.value) && target.validity.valid) {
+      if (target.value && !validateBsn(target.value) && target.validity.valid) {
         target.setCustomValidity(
-          "Het nummer voldoet niet aan de elfproef. Controleer het nummer en probeer het opnieuw."
+          "Dit is geen geldig BSN nummer. Controleer het nummer en probeer het opnieuw."
         );
       }
     }
 
     const valid = target.validity.valid;
-    target.setAttribute("aria-invalid", (!valid).toString());
+    target.setAttribute("aria-invalid", !valid);
     const cssMsg = window.getComputedStyle(errorEl, "::before").content;
 
     // Set feedback message if CSS failed
@@ -131,7 +131,7 @@ function validateBsn(bsn) {
 
 /**
  * Retrieves persisted data for the given element
- * @param {HTMLInputElement} el The element to retrieve data for
+ * @param {HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement} el The element to retrieve data for
  */
 function retrievePersistedData(el) {
   if (window.localStorage) {
@@ -149,7 +149,7 @@ function retrievePersistedData(el) {
 
 /**
  * Sets persisted data for the given element
- * @param {HTMLInputElement} el The element to set data for
+ * @param {HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement} el The element to set data for
  */
 function setPersistedData(el) {
   if (window.localStorage) {

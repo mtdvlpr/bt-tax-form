@@ -1,49 +1,61 @@
 /* Validation styles */
 
 /* Input validation */
-[data-js-enabled="false"] input:valid {
+[data-js-enabled="false"] input:valid,
+[data-js-enabled="false"] select:valid {
   border: 2px solid var(--success-color);
 }
 
-[data-js-enabled="false"] input:invalid {
+[data-js-enabled="false"] input:invalid,
+[data-js-enabled="false"] select:invalid {
   border: 2px solid var(--error-color);
 }
 
-[data-js-enabled="false"] input:invalid + span::before {
+[data-js-enabled="false"] input:invalid + span::before,
+[data-js-enabled="false"] select:invalid + span::before {
   content: attr(data-error-message);
   color: var(--error-color);
 }
 
-[data-js-enabled="false"] input:valid + span::before {
+[data-js-enabled="false"] input:valid + span::before,
+[data-js-enabled="false"] select:valid + span::before {
   content: "✓";
   color: var(--success-color);
 }
 
 @supports selector(:user-valid) {
   [data-js-enabled="false"] input:valid,
-  [data-js-enabled="false"] input:invalid {
+  [data-js-enabled="false"] input:invalid,
+  [data-js-enabled="false"] select:valid,
+  [data-js-enabled="false"] select:invalid {
     border: revert;
   }
 
-  [data-js-enabled="false"] input:user-valid {
+  [data-js-enabled="false"] input:user-valid,
+  [data-js-enabled="false"] select:user-valid {
     border: 2px solid var(--success-color);
   }
 
-  [data-js-enabled="false"] input:user-invalid {
+  [data-js-enabled="false"] input:user-invalid,
+  [data-js-enabled="false"] select:user-invalid {
     border: 2px solid var(--error-color);
   }
 
   [data-js-enabled="false"] input:valid + span::before,
-  [data-js-enabled="false"] input:invalid + span::before {
+  [data-js-enabled="false"] input:invalid + span::before,
+  [data-js-enabled="false"] select:valid + span::before,
+  [data-js-enabled="false"] select:invalid + span::before {
     content: "";
   }
 
-  [data-js-enabled="false"] input:user-valid + span::before {
+  [data-js-enabled="false"] input:user-valid + span::before,
+  [data-js-enabled="false"] select:user-valid + span::before {
     content: "✓";
     color: var(--success-color);
   }
 
-  [data-js-enabled="false"] input:user-invalid + span::before {
+  [data-js-enabled="false"] input:user-invalid + span::before,
+  [data-js-enabled="false"] select:user-invalid + span::before {
     content: attr(data-error-message);
     color: var(--error-color);
   }

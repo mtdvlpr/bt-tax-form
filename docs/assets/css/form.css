@@ -1,6 +1,10 @@
 /* Form styles */
 
 /* Fieldsets */
+fieldset {
+  margin: 0.5rem 0;
+}
+
 @media (prefers-color-scheme: dark) {
   fieldset {
     border-color: gray;
@@ -8,7 +12,9 @@
 }
 
 /* Inputs and labels */
-input {
+input,
+select,
+textarea {
   margin: 0.5rem 0;
 }
 
@@ -16,7 +22,9 @@ fieldset > div > label {
   display: block;
 }
 
-fieldset > div > input + label {
+fieldset > div > input + label,
+fieldset > div > select + label,
+fieldset > div > textarea + label {
   display: inline;
 }
 

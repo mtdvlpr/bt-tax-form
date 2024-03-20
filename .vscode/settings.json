@@ -16,5 +16,6 @@
   "cSpell.language": "en,nl",
   "liveServer.settings.root": "/docs",
   "liveServer.settings.mount": [["/bt-tax-form/", "./docs"]],
-  "cSpell.words": ["Todos"]
+  "cSpell.ignoreWords": ["COK"],
+  "cSpell.words": ["becon", "beconnummer", "Cocoseilanden", "RSIN", "Todos"]
 }

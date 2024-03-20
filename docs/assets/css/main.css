@@ -28,6 +28,11 @@ header h1 {
   margin-top: 0;
 }
 
+header p.alert {
+  padding: 1em;
+  border: 2px solid var(--error-color);
+}
+
 footer {
   padding: 1em 0;
   text-align: center;
