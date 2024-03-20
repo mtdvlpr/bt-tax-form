@@ -145,6 +145,9 @@ window.addEventListener("beforeprint", () => {
   // Replace date inputs
   replaceDateInputs();
 
+  // Replace selects
+  replaceSelects();
+
   // Change submit link text
   const submitLink = document.querySelector('a[href$="#submit"]');
   submitLink.innerText = "Ga verder met de volgende vraag.";
@@ -157,6 +160,9 @@ window.addEventListener("afterprint", () => {
 
   // Revert date inputs
   replaceDateInputs(true);
+
+  // Revert selects
+  replaceSelects(true);
 
   // Revert submit link text
   const submitLink = document.querySelector('a[href$="#submit"]');
@@ -206,6 +212,45 @@ function replaceDateInputs(reverse = false) {
       div.appendChild(month);
       div.appendChild(separator.cloneNode(true));
       div.appendChild(year);
+      input.parentElement.insertBefore(div, input);
+    }
+  });
+}
+
+/**
+ * Replaces selects with text inputs
+ * @param {boolean} reverse Wether to reverse the transformation (text inputs to select)
+ */
+function replaceSelects(reverse = false) {
+  const selects = document.querySelectorAll("select");
+  selects.forEach((input) => {
+    if (reverse) {
+      // Show select and remove the text input
+      input.style.display = "";
+      input.parentElement.removeChild(input.parentElement.querySelector("div"));
+    } else {
+      // Hide select and create text input
+      input.style.display = "none";
+      const div = document.createElement("div");
+      const textInput = document.createElement("input");
+
+      const max = input.getAttribute("data-max");
+      if (max) {
+        try {
+          textInput.style.width = `${25 * parseInt(max)}px`;
+        } catch (e) {
+          console.debug(e);
+        }
+      }
+
+      // Extract date value and set them to the new inputs
+      const selection = input.value;
+      if (selection) {
+        textInput.value = selection;
+      }
+
+      // Add select to the div and insert it before the select
+      div.appendChild(textInput);
       input.parentElement.insertBefore(div, input);
     }
   });
