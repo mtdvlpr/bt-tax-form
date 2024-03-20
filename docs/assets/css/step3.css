@@ -7,10 +7,12 @@
 
 /* Hide extra receivers until the previous one is filled */
 @supports selector(:has(fieldset:user-valid)) {
-  fieldset[name="receiver-2"],
-  fieldset[name="receiver-3"],
-  fieldset[name="receiver-4"] {
-    display: none;
+  @media screen {
+    fieldset[name="receiver-2"],
+    fieldset[name="receiver-3"],
+    fieldset[name="receiver-4"] {
+      display: none;
+    }
   }
 
   :root:has(fieldset[name="receiver-1"] input[name^="surname"]:user-valid)
