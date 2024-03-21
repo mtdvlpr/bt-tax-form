@@ -22,4 +22,4 @@
 - [x] Date inputs with `min` and `max` of today's date via `data-min`, `data-max`
 - [x] Explanation text for questions
 - [x] Print stylesheet
-- [ ] Support non-input elements (e.g. `select`, `textarea`)
+- [x] Support non-input elements (e.g. `select`, `textarea`)
