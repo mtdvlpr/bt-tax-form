@@ -143,7 +143,7 @@ function setFeedbackMessage(target, reset = false) {
       const valid = target.validity.valid;
       const dark = window.matchMedia("(prefers-color-scheme: dark)").matches;
       const color = dark ? "#ff4242" : "#ad0000";
-      fieldset.style.border = valid ? "" : `2px solid ${color}`;
+      fieldset.style.border = valid || reset ? "" : `2px solid ${color}`;
     }
   } else if (target.getAttribute("type") === "checkbox") {
     const parent = target.parentElement;
@@ -151,7 +151,7 @@ function setFeedbackMessage(target, reset = false) {
       const valid = target.validity.valid;
       const dark = window.matchMedia("(prefers-color-scheme: dark)").matches;
       const color = dark ? "#ff4242" : "#ad0000";
-      parent.style.border = valid ? "" : `2px solid ${color}`;
+      parent.style.border = valid || reset ? "" : `2px solid ${color}`;
     }
   }
 }
