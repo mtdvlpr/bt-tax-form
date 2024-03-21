@@ -11,7 +11,7 @@ function initSummary() {
       const value = window.localStorage.getItem(key);
 
       const li = document.createElement("li");
-      li.innerHTML = `<b>${key}</b>: ${value}`;
+      li.innerHTML = `<b>${key}</b>: ${value || "Niet ingevuld"}`;
       summary.appendChild(li);
     }
   }
