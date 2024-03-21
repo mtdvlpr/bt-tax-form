@@ -48,6 +48,7 @@
                 type="radio"
                 id="whoami-executor"
                 name="whoami"
+                value="executor"
                 required
                 aria-required="true"
               />
@@ -57,7 +58,12 @@
               </label>
             </div>
             <div>
-              <input type="radio" id="whoami-heir-delegate" name="whoami" />
+              <input
+                type="radio"
+                id="whoami-heir-delegate"
+                name="whoami"
+                value="erfgenaam en gemachtigd"
+              />
               <label for="whoami-heir-delegate">
                 Ik ben <b>erfgenaam</b> en ben <b>gemachtigd</b> om aangifte te
                 doen voor meerdere personen en/of instellingen die iets krijgen
@@ -65,21 +71,36 @@
               </label>
             </div>
             <div>
-              <input type="radio" id="whoami-heir-together" name="whoami" />
+              <input
+                type="radio"
+                id="whoami-heir-together"
+                name="whoami"
+                value="erfgenaam en samen"
+              />
               <label for="whoami-heir-together">
                 Ik ben <b>erfgenaam</b> en doe <b>samen</b> met andere
                 erfgenamen aangifte.
               </label>
             </div>
             <div>
-              <input type="radio" id="whoami-heir-alone" name="whoami" />
+              <input
+                type="radio"
+                id="whoami-heir-alone"
+                name="whoami"
+                value="erfgenaam en alleen"
+              />
               <label for="whoami-heir-alone">
                 Ik ben <b>erfgenaam</b> en doe <b>alleen</b> aangifte voor
                 mijzelf.
               </label>
             </div>
             <div>
-              <input type="radio" id="whoami-delegate" name="whoami" />
+              <input
+                type="radio"
+                id="whoami-delegate"
+                name="whoami"
+                value="geen erfgenaam, maar gemachtigd"
+              />
               <label for="whoami-delegate">
                 Ik ben <b>geen erfgenaam</b>, maar ben <b>gemachtigd</b> om
                 aangifte te doen.
@@ -119,6 +140,7 @@
                 type="radio"
                 id="excluded-no"
                 name="excluded"
+                value="Nee"
                 required
                 aria-required="true"
                 checked
@@ -129,7 +151,12 @@
               </a>
             </div>
             <div>
-              <input type="radio" id="excluded-yes" name="excluded" />
+              <input
+                type="radio"
+                id="excluded-yes"
+                name="excluded"
+                value="Ja"
+              />
               <label for="excluded-yes">
                 Ja. Vul hieronder de gegevens in van de verkrijgers waarvoor u
                 geen aangifte doet.
@@ -233,6 +260,7 @@
                   type="radio"
                   id="gets-all-receiver-1-no"
                   name="gets-all-receiver-1"
+                  value="Nee"
                   required
                   aria-required="true"
                   checked
@@ -244,6 +272,7 @@
                   type="radio"
                   id="gets-all-receiver-1-yes"
                   name="gets-all-receiver-1"
+                  value="Ja"
                 />
                 <label for="gets-all-receiver-1-yes">Ja.</label>
               </div>
@@ -258,6 +287,7 @@
                   type="radio"
                   id="wants-some-receiver-1-no"
                   name="wants-some-receiver-1"
+                  value="Nee"
                   required
                   aria-required="true"
                   checked
@@ -269,6 +299,7 @@
                   type="radio"
                   id="wants-some-receiver-1-yes"
                   name="wants-some-receiver-1"
+                  value="Ja"
                 />
                 <label for="wants-some-receiver-1-yes">Ja.</label>
               </div>
@@ -374,6 +405,7 @@
                   type="radio"
                   id="gets-all-receiver-2-no"
                   name="gets-all-receiver-2"
+                  value="Nee"
                   required
                   aria-required="true"
                   checked
@@ -385,6 +417,7 @@
                   type="radio"
                   id="gets-all-receiver-2-yes"
                   name="gets-all-receiver-2"
+                  value="Ja"
                 />
                 <label for="gets-all-receiver-2-yes">Ja.</label>
               </div>
@@ -399,6 +432,7 @@
                   type="radio"
                   id="wants-some-receiver-2-no"
                   name="wants-some-receiver-2"
+                  value="Nee"
                   required
                   aria-required="true"
                   checked
@@ -410,6 +444,7 @@
                   type="radio"
                   id="wants-some-receiver-2-yes"
                   name="wants-some-receiver-2"
+                  value="Ja"
                 />
                 <label for="wants-some-receiver-2-yes">Ja.</label>
               </div>
@@ -515,6 +550,7 @@
                   type="radio"
                   id="gets-all-receiver-3-no"
                   name="gets-all-receiver-3"
+                  value="Nee"
                   required
                   aria-required="true"
                   checked
@@ -526,6 +562,7 @@
                   type="radio"
                   id="gets-all-receiver-3-yes"
                   name="gets-all-receiver-3"
+                  value="Ja"
                 />
                 <label for="gets-all-receiver-3-yes">Ja.</label>
               </div>
@@ -540,6 +577,7 @@
                   type="radio"
                   id="wants-some-receiver-3-no"
                   name="wants-some-receiver-3"
+                  value="Nee"
                   required
                   aria-required="true"
                   checked
@@ -551,6 +589,7 @@
                   type="radio"
                   id="wants-some-receiver-3-yes"
                   name="wants-some-receiver-3"
+                  value="Ja"
                 />
                 <label for="wants-some-receiver-3-yes">Ja.</label>
               </div>
@@ -656,6 +695,7 @@
                   type="radio"
                   id="gets-all-receiver-4-no"
                   name="gets-all-receiver-4"
+                  value="Nee"
                   required
                   aria-required="true"
                   checked
@@ -667,6 +707,7 @@
                   type="radio"
                   id="gets-all-receiver-4-yes"
                   name="gets-all-receiver-4"
+                  value="Ja"
                 />
                 <label for="gets-all-receiver-4-yes">Ja.</label>
               </div>
@@ -681,6 +722,7 @@
                   type="radio"
                   id="wants-some-receiver-4-no"
                   name="wants-some-receiver-4"
+                  value="Nee"
                   required
                   aria-required="true"
                   checked
@@ -692,6 +734,7 @@
                   type="radio"
                   id="wants-some-receiver-4-yes"
                   name="wants-some-receiver-4"
+                  value="Ja"
                 />
                 <label for="wants-some-receiver-4-yes">Ja.</label>
               </div>
@@ -707,6 +750,7 @@
               type="radio"
               id="send-to-everyone"
               name="send-to"
+              value="Iedere verkrijger"
               required
               aria-required="true"
               checked
@@ -717,7 +761,12 @@
             </label>
           </div>
           <div>
-            <input type="radio" id="send-to-yes" name="send-to-executors" />
+            <input
+              type="radio"
+              id="send-to-executors"
+              name="send-to"
+              value="Executeur of erfgenaam"
+            />
             <label for="send-to-executors">
               Stuur de belastingaanslag(en) naar de executeur of naar de
               erfgenaam die ook namens andere personen en/of instellingen die
@@ -725,6 +774,33 @@
               gedaan; dit mag ook de gemachtigde zijn. Wij sturen de aanslag(en)
               naar het adres dat u bij vraag 2 hebt ingevuld.
             </label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>3d. Bent u executeur of gemachtigde?</legend>
+          <div>
+            <input
+              type="radio"
+              id="is-executor-no"
+              name="is-executor"
+              value="Nee"
+              required
+              aria-required="true"
+              checked
+            />
+            <label for="is-executor-no">Nee.</label>
+            <a href="3-voor-wie-doet-u-aangifte.html#submit">
+              Verstuur dit formulier en ga verder met de volgende stap.
+            </a>
+          </div>
+          <div>
+            <input
+              type="radio"
+              id="is-executor-yes"
+              name="is-executor"
+              value="Ja"
+            />
+            <label for="is-executor-yes">Ja.</label>
           </div>
         </fieldset>
         <button type="reset">Reset</button>
