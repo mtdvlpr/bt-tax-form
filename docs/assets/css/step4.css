@@ -9,4 +9,9 @@
     [data-hide="is-not-person-receiver-1-no"] {
     display: none;
   }
+
+  :root:not(:has(#relation-receiver-1-cohabiter:checked))
+    [data-hide="!relation-receiver-1-cohabiter"] {
+    display: none;
+  }
 }
