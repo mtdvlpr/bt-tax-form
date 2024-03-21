@@ -161,6 +161,11 @@ window.addEventListener("beforeprint", () => {
   // Replace number inputs
   replaceNumberInputs();
 
+  // Remove radio fieldset validation
+  document.querySelectorAll("fieldset").forEach((fieldset) => {
+    fieldset.style.border = "";
+  });
+
   // Change submit link text
   const submitLink = document.querySelector('a[href$="#submit"]');
   if (submitLink) {
