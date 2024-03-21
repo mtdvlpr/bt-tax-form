@@ -19,6 +19,7 @@
   button,
   footer,
   [data-tooltip],
+  [data-signature],
   [data-hide-print],
   [data-error-message],
   div:has(> input[type="file"]) {
@@ -50,7 +51,12 @@
   }
 
   /* Show radio input labels right next to input */
-  fieldset > div > input + label {
+  fieldset > div > input:not([data-signature]) + label {
     display: inline !important;
+  }
+
+  /* Hide signature input labels */
+  fieldset > div > input[data-signature] + label {
+    display: none !important;
   }
 }

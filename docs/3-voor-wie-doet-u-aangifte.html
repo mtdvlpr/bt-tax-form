@@ -803,6 +803,296 @@
             <label for="is-executor-yes">Ja.</label>
           </div>
         </fieldset>
+        <fieldset>
+          <legend>3e. Gegevens van de executeur of gemachtigde</legend>
+          <div>
+            <div>
+              <label for="bsn-executor"> Burgerservicenummer/RSIN </label>
+              <span
+                data-tooltip="Het bsn staat op 1 van de volgende documenten:
+                    <ul>
+                      <li>
+                        Nederlands identiteitsbewijs, zoals een paspoort,
+                        identiteitskaart of rijbewijs
+                      </li>
+                      <li>
+                        een aanslag inkomstenbelasting of een aangiftebrief
+                      </li>
+                      <li>
+                        Nederlandse loonstrook, jaaropgaaf, zorgpas of zorgpolis
+                      </li>
+                    </ul>"
+              >
+                <span role="status" aria-live="polite">
+                  <div>
+                    Het bsn staat op 1 van de volgende documenten:
+                    <ul>
+                      <li>
+                        Nederlands identiteitsbewijs, zoals een paspoort,
+                        identiteitskaart of rijbewijs
+                      </li>
+                      <li>
+                        een aanslag inkomstenbelasting of een aangiftebrief
+                      </li>
+                      <li>
+                        Nederlandse loonstrook, jaaropgaaf, zorgpas of zorgpolis
+                      </li>
+                    </ul>
+                  </div>
+                </span>
+              </span>
+            </div>
+            <input
+              type="text"
+              id="bsn-executor"
+              name="bsn-executor"
+              inputmode="numeric"
+              pattern="[0-9]{8,9}"
+              title="Vul een geldig burgerservicenummer in van 8 of 9 nummers"
+              minlength="8"
+              data-validate="bsn"
+              required
+              aria-required="true"
+              aria-describedby="bsn-executor-desc"
+            />
+            <span
+              id="bsn-executor-desc"
+              data-error-message="Vul een geldig burgerservicenummer in van 8 of 9 nummers."
+            ></span>
+          </div>
+          <div>
+            <div>
+              <label for="notary-number-executor">
+                Protocolnummer (als de executeur ook notaris is)
+              </label>
+              <span
+                data-tooltip="Het nummer van een notaris in functie vindt u op <a href='registernotariaat.nl'>registernotariaat.nl</a> in het <b>Register notariaat</b>."
+              >
+                <span role="status" aria-live="polite">
+                  <div>
+                    Het nummer van een notaris in functie vindt u op
+                    <a href="registernotariaat.nl">registernotariaat.nl</a> in
+                    het <b>Register notariaat</b>.
+                  </div>
+                </span>
+              </span>
+            </div>
+            <input
+              type="text"
+              id="notary-number-executor"
+              name="notary-number-executor"
+              inputmode="numeric"
+              pattern="[0-9]{6}"
+              title="Vul een protocolnummer in van 6 nummers"
+              minlength="6"
+              aria-describedby="notary-number-executor-desc"
+            />
+            <span
+              id="notary-number-executor-desc"
+              data-error-message="Vul een protocolnummer in van 6 nummers."
+            ></span>
+          </div>
+          <div>
+            <div>
+              <label for="becon-executor">Beconnummer van de adviseur</label>
+              <span
+                data-tooltip="Elke belastingconsulent heeft een beconnummer. U vindt het beconnummer bijvoorbeeld op de factuur."
+              >
+                <span role="status" aria-live="polite">
+                  <div>
+                    Elke belastingconsulent heeft een beconnummer. U vindt het
+                    beconnummer bijvoorbeeld op de factuur.
+                  </div>
+                </span>
+              </span>
+            </div>
+            <input
+              type="text"
+              id="becon-executor"
+              name="becon-executor"
+              inputmode="numeric"
+              pattern="[0-9]{6}"
+              title="Vul een beconnummer in van 6 nummers"
+              minlength="6"
+              required
+              aria-required="true"
+              aria-describedby="becon-executor-desc"
+            />
+            <span
+              id="becon-executor-desc"
+              data-error-message="Vul een beconnummer in van 6 nummers."
+            ></span>
+          </div>
+          <div>
+            <label for="first-letters-executor">Voorletter(s)</label>
+            <input
+              type="text"
+              id="first-letters-executor"
+              name="first-letters-executor"
+              required
+              aria-required="true"
+              aria-describedby="first-letters-executor-desc"
+            />
+            <span
+              id="first-letters-executor-desc"
+              data-error-message="Dit veld is verplicht."
+            ></span>
+          </div>
+          <div>
+            <label for="family-affix-executor">Tussenvoegsel(s)</label>
+            <input
+              type="text"
+              id="family-affix-executor"
+              name="family-affix-executor"
+              aria-describedby="family-affix-executor-desc"
+            />
+            <span
+              id="family-affix-executor-desc"
+              data-error-message="Dit veld is verplicht."
+            ></span>
+          </div>
+          <div>
+            <label for="surname-executor">Achternaam</label>
+            <input
+              type="text"
+              id="surname-executor"
+              name="surname-executor"
+              required
+              aria-required="true"
+              aria-describedby="surname-executor-desc"
+            />
+            <span
+              id="surname-executor-desc"
+              data-error-message="Dit veld is verplicht."
+            ></span>
+          </div>
+          <div>
+            <label for="entity-name-executor">
+              Naam instelling (bijvoorbeeld een notariskantoor)
+            </label>
+            <input
+              type="text"
+              id="entity-name-executor"
+              name="entity-name-executor"
+              required
+              aria-required="true"
+              aria-describedby="entity-name-executor-desc"
+            />
+            <span
+              id="entity-name-executor-desc"
+              data-error-message="Dit veld is verplicht."
+            ></span>
+          </div>
+          <fieldset>
+            <legend>Adres van de executeur of gemachtigde</legend>
+            <div>
+              <label for="street-executor">Straat</label>
+              <input
+                type="text"
+                id="street-executor"
+                name="street-executor"
+                required
+                aria-required="true"
+                aria-describedby="street-executor-desc"
+              />
+              <span
+                id="street-executor-desc"
+                data-error-message="Dit veld is verplicht."
+              ></span>
+            </div>
+            <div>
+              <label for="house-nr-executor">Huisnummer</label>
+              <input
+                type="text"
+                id="house-nr-executor"
+                name="house-nr-executor"
+                required
+                aria-required="true"
+                aria-describedby="house-nr-executor-desc"
+              />
+              <span
+                id="house-nr-executor-desc"
+                data-error-message="Dit veld is verplicht."
+              ></span>
+            </div>
+            <div>
+              <label for="address-addition-executor">Toevoeging</label>
+              <input
+                type="text"
+                id="address-addition-executor"
+                name="address-addition-executor"
+              />
+            </div>
+            <div>
+              <label for="postcode-executor">Postcode</label>
+              <input
+                type="text"
+                id="postcode-executor"
+                name="postcode-executor"
+                pattern="[0-9]{4}\s?[a-zA-Z]{2}"
+                title="Vul een geldige postcode in, zoals 1234AB."
+                required
+                aria-required="true"
+                aria-describedby="postcode-executor-desc"
+              />
+              <span
+                id="postcode-executor-desc"
+                data-error-message="Vul een geldige postcode in, zoals 1234AB."
+              ></span>
+            </div>
+            <div>
+              <label for="place-executor">Plaats</label>
+              <input
+                type="text"
+                id="place-executor"
+                name="place-executor"
+                required
+                aria-required="true"
+                aria-describedby="place-executor-desc"
+              />
+              <span
+                id="place-executor-desc"
+                data-error-message="Dit veld is verplicht."
+              ></span>
+            </div>
+          </fieldset>
+          <div>
+            <label for="date-signature-executor">Datum</label>
+            <input
+              type="date"
+              id="date-signature-executor"
+              name="date-signature-executor"
+              placeholder="yyyy-mm-dd"
+              pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
+              title="Vul een geldige datum (yyyy-mm-dd) in"
+              min="1900-01-01"
+              data-min="today"
+              data-max="today"
+              data-value="today"
+              required
+              aria-required="true"
+              aria-describedby="date-signature-executor-desc"
+            />
+            <span
+              id="date-signature-executor-desc"
+              data-error-message="Vul een geldige datum (yyyy-mm-dd) in."
+            ></span>
+          </div>
+          <div>
+            <input
+              type="checkbox"
+              id="signature-executor"
+              name="signature-executor"
+              value="Handtekening"
+              data-signature="Uw handtekening"
+              required
+              aria-required="true"
+            />
+            <label for="signature-executor">
+              Onderteken dit formulier via DigiD.
+            </label>
+          </div>
+        </fieldset>
         <button type="reset">Reset</button>
         <button id="submit" type="submit">Submit</button>
       </form>

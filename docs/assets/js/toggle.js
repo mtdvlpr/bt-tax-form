@@ -254,3 +254,34 @@ function replaceSelects(reverse = false) {
     }
   });
 }
+
+/**
+ * Replaces signature inputs with textareas
+ * @param {boolean} reverse Wether to reverse the transformation (textarea to signature input)
+ */
+function replaceSelects(reverse = false) {
+  const inputs = document.querySelectorAll("[data-signature]");
+  inputs.forEach((input) => {
+    if (reverse) {
+      // Show signature and remove the textarea
+      input.style.display = "";
+      input.parentElement.removeChild(input.parentElement.querySelector("div"));
+      input.parentElement.removeChild(
+        input.parentElement.querySelector("textarea")
+      );
+    } else {
+      // Hide signature and create label and textarea
+      input.style.display = "none";
+      const div = document.createElement("div");
+      const label = document.createElement("label");
+      const textarea = document.createElement("textarea");
+
+      label.innerText = input.getAttribute("data-signature");
+
+      // Add label to the div and insert it and textarea before the signature input
+      div.appendChild(label);
+      input.parentElement.insertBefore(div, input);
+      input.parentElement.insertBefore(textarea, input);
+    }
+  });
+}

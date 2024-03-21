@@ -46,11 +46,23 @@ function initErrorMessages() {
     const type = input.getAttribute("type");
 
     // Set the dynamic max attributes for date inputs
-    if (type == "date" && input.getAttribute("data-max") === "today") {
+    if (type == "date") {
       let today = new Date();
       const offset = today.getTimezoneOffset();
       today = new Date(today.getTime() - offset * 60 * 1000);
-      input.max = today.toISOString().split("T")[0];
+      today = today.toISOString().split("T")[0];
+
+      if (input.getAttribute("data-min") === "today") {
+        input.min = today;
+      }
+      if (input.getAttribute("data-max") === "today") {
+        input.max = today;
+      }
+      if (input.getAttribute("data-value") === "today") {
+        input.value = today;
+        input.setAttribute("readonly", true);
+        input.setAttribute("aria-readonly", true);
+      }
     }
 
     // Add extra change event listener for inputs that require a selection
