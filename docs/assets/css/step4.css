@@ -14,4 +14,9 @@
     [data-hide="!relation-receiver-1-cohabiter"] {
     display: none;
   }
+
+  :root:not(:has(#relation-receiver-1-cohabiter-notary:checked))
+    [data-hide="!relation-receiver-1-cohabiter-notary"] {
+    display: none;
+  }
 }
