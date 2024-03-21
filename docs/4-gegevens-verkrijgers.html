@@ -859,6 +859,78 @@
               />
               <label for="has-partner-receiver-1-yes">Ja.</label>
             </div>
+            <div data-hide="has-partner-receiver-1-no">
+              <label for="notary-surname">Naam van partner</label>
+              <input
+                type="text"
+                id="name-partner-receiver-1"
+                name="name-partner-receiver-1"
+                aria-describedby="name-partner-receiver-1-desc"
+                data-required
+              />
+              <span
+                id="name-partner-receiver-1-desc"
+                data-error-message="Dit veld is verplicht."
+              ></span>
+            </div>
+            <div data-hide="has-partner-receiver-1-no">
+              <div>
+                <label for="bsn-partner-receiver-1"
+                  >Burgerservicenummer partner</label
+                >
+                <span
+                  data-tooltip="Het bsn staat op 1 van de volgende documenten:
+                    <ul>
+                      <li>
+                        Nederlands identiteitsbewijs, zoals een paspoort,
+                        identiteitskaart of rijbewijs
+                      </li>
+                      <li>
+                        een aanslag inkomstenbelasting of een aangiftebrief
+                      </li>
+                      <li>
+                        Nederlandse loonstrook, jaaropgaaf, zorgpas of zorgpolis
+                      </li>
+                    </ul>"
+                >
+                  <span role="status" aria-live="polite">
+                    <div>
+                      Het bsn staat op 1 van de volgende documenten:
+                      <ul>
+                        <li>
+                          Nederlands identiteitsbewijs, zoals een paspoort,
+                          identiteitskaart of rijbewijs
+                        </li>
+                        <li>
+                          een aanslag inkomstenbelasting of een aangiftebrief
+                        </li>
+                        <li>
+                          Nederlandse loonstrook, jaaropgaaf, zorgpas of
+                          zorgpolis
+                        </li>
+                      </ul>
+                    </div>
+                  </span>
+                </span>
+              </div>
+              <input
+                type="text"
+                id="bsn-partner-receiver-1"
+                name="bsn-partner-receiver-1"
+                inputmode="numeric"
+                pattern="[0-9]{8,9}"
+                title="Vul een geldig burgerservicenummer in van 8 of 9 nummers"
+                minlength="8"
+                data-validate="bsn"
+                required
+                aria-required="true"
+                aria-describedby="bsn-partner-receiver-1-desc"
+              />
+              <span
+                id="bsn-partner-receiver-1-desc"
+                data-error-message="Vul een geldig burgerservicenummer in van 8 of 9 nummers."
+              ></span>
+            </div>
           </fieldset>
         </fieldset>
         <button type="reset">Reset</button>
