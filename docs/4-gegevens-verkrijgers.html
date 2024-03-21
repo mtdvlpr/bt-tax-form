@@ -690,6 +690,139 @@
             <label for="relation-receiver-1-other">Anders</label>
           </div>
         </fieldset>
+        <fieldset>
+          <legend>4d.</legend>
+          <div>
+            <label for="amount-receiver-1">
+              Wat is het erfdeel van deze verkrijger? Krijgt deze verkrijger
+              alleen een legaat of doet deze verkrijger een beroep op zijn
+              legitieme portie? Vul dan 0% in.
+            </label>
+            <input
+              type="number"
+              id="amount-receiver-1"
+              name="amount-receiver-1"
+              inputmode="decimal"
+              min="0"
+              step="0.01"
+              max="100"
+              pattern="[0-9]+"
+              title="Vul een geldig percentage in"
+              required
+              aria-required="true"
+              aria-describedby="amount-receiver-1-desc"
+            />
+            %
+            <span
+              id="amount-receiver-1-desc"
+              data-error-message="Dit veld is verplicht."
+            ></span>
+          </div>
+          <fieldset>
+            <legend>
+              Doet deze verkrijger een beroep op dienst legitieme portie?
+            </legend>
+            <div>
+              <input
+                type="radio"
+                id="legit-share-receiver-1-no"
+                name="legit-share-receiver-1"
+                value="Nee"
+                required
+                aria-required="true"
+                checked
+              />
+              <label for="legit-share-receiver-1-no">Nee.</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                id="legit-share-receiver-1-yes"
+                name="legit-share-receiver-1"
+                value="Ja"
+              />
+              <label for="legit-share-receiver-1-yes">Ja.</label>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Is er sprake van vruchtgebruik?</legend>
+            <div>
+              <input
+                type="radio"
+                id="vruchtgebruik-receiver-1-no"
+                name="vruchtgebruik-receiver-1"
+                value="Nee"
+                required
+                aria-required="true"
+                checked
+              />
+              <label for="vruchtgebruik-receiver-1-no">Nee.</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                id="vruchtgebruik-receiver-1-yes"
+                name="vruchtgebruik-receiver-1"
+                value="Ja"
+              />
+              <label for="vruchtgebruik-receiver-1-yes">Ja.</label>
+            </div>
+            <fieldset data-hide="vruchtgebruik-receiver-1-no">
+              <legend>
+                Vraagt de partner van de overledene of iemand anders die het
+                vruchtgebruik van de woning krijgt om uitstel van betaling?
+              </legend>
+              <div>
+                <input
+                  type="radio"
+                  id="vruchtgebruik-uitstel-receiver-1-no"
+                  name="vruchtgebruik-uitstel-receiver-1"
+                  value="Nee"
+                  required
+                  aria-required="true"
+                  checked
+                />
+                <label for="vruchtgebruik-uitstel-receiver-1-no">Nee.</label>
+              </div>
+              <div>
+                <input
+                  type="radio"
+                  id="vruchtgebruik-uitstel-receiver-1-yes"
+                  name="vruchtgebruik-uitstel-receiver-1"
+                  value="Ja"
+                />
+                <label for="vruchtgebruik-uitstel-receiver-1-yes">Ja.</label>
+              </div>
+            </fieldset>
+          </fieldset>
+          <fieldset>
+            <legend>
+              Heeft deze verkrijger een partner die ook een erfdeel of een
+              legaat van de overledene krijgt?
+            </legend>
+            <div>
+              <input
+                type="radio"
+                id="has-partner-receiver-1-no"
+                name="has-partner-receiver-1"
+                value="Nee"
+                required
+                aria-required="true"
+                checked
+              />
+              <label for="has-partner-receiver-1-no">Nee.</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                id="has-partner-receiver-1-yes"
+                name="has-partner-receiver-1"
+                value="Ja"
+              />
+              <label for="has-partner-receiver-1-yes">Ja.</label>
+            </div>
+          </fieldset>
+        </fieldset>
         <button type="reset">Reset</button>
         <button id="submit" type="submit">Submit</button>
       </form>
