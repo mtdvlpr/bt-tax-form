@@ -183,7 +183,7 @@ function validateBsn(bsn) {
 function retrievePersistedData(el) {
   if (window.localStorage) {
     const type = el.getAttribute("type");
-    const value = localStorage.getItem(el.id);
+    const value = window.localStorage.getItem(el.id);
     if (value && type === "radio") {
       el.checked = value === "true";
       return;
