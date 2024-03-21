@@ -77,8 +77,10 @@ function initToggle() {
  * @param {boolean} show Whether to show or hide the section
  */
 function toggleSection(controller, show = false) {
-  const containerEl = document.querySelector(`[data-hide="${controller}"]`);
-  containerEl.style.display = show ? "" : "none";
+  const containerEls = document.querySelectorAll(`[data-hide="${controller}"]`);
+  containerEls.forEach((containerEl) => {
+    containerEl.style.display = show ? "" : "none";
+  });
   const inputs = inputMap[controller].inputs;
 
   if (inputs) {
