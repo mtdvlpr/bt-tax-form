@@ -32,6 +32,10 @@
     border-color: unset !important;
   }
 
+  div {
+    border: unset !important;
+  }
+
   /* Remove link styling */
   a {
     font-weight: normal;
