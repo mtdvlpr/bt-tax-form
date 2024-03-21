@@ -10,7 +10,7 @@ Daarna ben ik begonnen met de eerste velden in HTML te zetten. Ik heb een aantal
 
 ## Week 2
 
-Ik heb alle velden van het eerste kopje in HTML gezet en alle JavaScript componenten geschreven om velden te tonen/verbergen en te valideren. Ik heb ook een aantal CSS componenten geschreven om de velden te stijlen.
+Ik heb alle velden van het eerste kopje in HTML gezet en alle JavaScript componenten geschreven om velden te tonen/verbergen en te valideren. Ik heb ook een aantal CSS componenten geschreven om de velden te stijlen en een print stylesheet gemaakt.
 
 ## Week 3
 
