@@ -66,7 +66,12 @@ function initErrorMessages() {
     }
 
     // Add extra change event listener for inputs that require a selection
-    if (type === "date" || type === "file" || input.tagName === "SELECT") {
+    if (
+      type === "checkbox" ||
+      type === "date" ||
+      type === "file" ||
+      input.tagName === "SELECT"
+    ) {
       input.addEventListener("change", (e) => {
         setFeedbackMessage(e.target);
       });
@@ -133,12 +138,20 @@ function setFeedbackMessage(target, reset = false) {
       errorEl.innerText = "";
     }
   } else if (target.getAttribute("type") === "radio") {
-    const valid = target.validity.valid;
     const fieldset = target.closest("fieldset");
     if (fieldset) {
+      const valid = target.validity.valid;
       const dark = window.matchMedia("(prefers-color-scheme: dark)").matches;
       const color = dark ? "#ff4242" : "#ad0000";
       fieldset.style.border = valid ? "" : `2px solid ${color}`;
+    }
+  } else if (target.getAttribute("type") === "checkbox") {
+    const parent = target.parentElement;
+    if (parent) {
+      const valid = target.validity.valid;
+      const dark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      const color = dark ? "#ff4242" : "#ad0000";
+      parent.style.border = valid ? "" : `2px solid ${color}`;
     }
   }
 }

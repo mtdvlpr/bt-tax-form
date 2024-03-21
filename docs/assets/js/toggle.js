@@ -4,12 +4,12 @@
  */
 const inputMap = {};
 
-initValidation();
+initToggle();
 
 /**
  * Initializes the form validation
  */
-function initValidation() {
+function initToggle() {
   const hiddenElements = document.querySelectorAll("[data-hide]");
   const controllers = [];
 
@@ -155,7 +155,7 @@ window.addEventListener("beforeprint", () => {
 // Reverse print transformation after print dialog is closed
 window.addEventListener("afterprint", () => {
   // Hide sections that were hidden before
-  initValidation();
+  initToggle();
 
   // Revert date inputs
   replaceDateInputs(true);

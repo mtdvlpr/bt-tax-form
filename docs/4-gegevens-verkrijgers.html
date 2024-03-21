@@ -18,6 +18,7 @@
     <!-- Stylesheets -->
     <link rel="stylesheet" href="assets/css/main.css" />
     <link rel="stylesheet" media="print" href="assets/css/print.css" />
+    <link rel="stylesheet" href="assets/css/step4.css" />
 
     <!-- Title and base URL -->
     <title>Stap 4 van 5: Gegevens verkrijgers</title>
@@ -27,11 +28,509 @@
     <!-- Header -->
     <header>
       <h1>Stap 4 van 5: Gegevens verkrijgers</h1>
+      <p>
+        <b>Let op!</b> Verkrijgers zijn alle personen en/of instellingen die
+        iets krijgen uit de nalatenschap van de overledene.
+      </p>
     </header>
 
     <!-- Main content -->
     <main>
       <form action="https://adactio.com/post" method="post">
+        <fieldset>
+          <legend>4a. Gegevens verkrijger 1</legend>
+          <fieldset data-hide-print>
+            <legend>Is de verkrijger een instelling?</legend>
+            <div>
+              <input
+                type="radio"
+                id="is-not-person-receiver-1-no"
+                name="is-not-person-receiver-1"
+                value="Nee"
+                required
+                aria-required="true"
+                checked
+              />
+              <label for="is-not-person-receiver-1-no">Nee.</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                id="is-not-person-receiver-1-yes"
+                name="is-not-person-receiver-1"
+                value="Ja"
+              />
+              <label for="is-not-person-receiver-1-yes">Ja.</label>
+            </div>
+          </fieldset>
+          <fieldset data-hide="is-not-person-receiver-1-yes">
+            <legend>Gegevens persoon</legend>
+            <div>
+              <div>
+                <label for="bsn-receiver-1">
+                  Burgerservicenummer overledene
+                </label>
+                <span
+                  data-tooltip="Het bsn staat op 1 van de volgende documenten:
+                    <ul>
+                      <li>
+                        Nederlands identiteitsbewijs, zoals een paspoort,
+                        identiteitskaart of rijbewijs
+                      </li>
+                      <li>
+                        een aanslag inkomstenbelasting of een aangiftebrief
+                      </li>
+                      <li>
+                        Nederlandse loonstrook, jaaropgaaf, zorgpas of zorgpolis
+                      </li>
+                    </ul>"
+                >
+                  <span role="status" aria-live="polite">
+                    <div>
+                      Het bsn staat op 1 van de volgende documenten:
+                      <ul>
+                        <li>
+                          Nederlands identiteitsbewijs, zoals een paspoort,
+                          identiteitskaart of rijbewijs
+                        </li>
+                        <li>
+                          een aanslag inkomstenbelasting of een aangiftebrief
+                        </li>
+                        <li>
+                          Nederlandse loonstrook, jaaropgaaf, zorgpas of
+                          zorgpolis
+                        </li>
+                      </ul>
+                    </div>
+                  </span>
+                </span>
+              </div>
+              <input
+                type="text"
+                id="bsn-receiver-1"
+                name="bsn-receiver-1"
+                inputmode="numeric"
+                pattern="[0-9]{8,9}"
+                title="Vul een geldig burgerservicenummer in van 8 of 9 nummers"
+                minlength="8"
+                data-validate="bsn"
+                data-required
+                aria-describedby="bsn-receiver-1-desc"
+              />
+              <span
+                id="bsn-receiver-1-desc"
+                data-error-message="Vul een geldig burgerservicenummer in van 8 of 9 nummers."
+              ></span>
+            </div>
+            <div>
+              <label for="first-letters-receiver-1">Voorletter(s)</label>
+              <input
+                type="text"
+                id="first-letters-receiver-1"
+                name="first-letters-receiver-1"
+                data-required
+                aria-describedby="first-letters-receiver-1-desc"
+              />
+              <span
+                id="first-letters-receiver-1-desc"
+                data-error-message="Dit veld is verplicht."
+              ></span>
+            </div>
+            <div>
+              <label for="family-affix-receiver-1">Tussenvoegsel(s)</label>
+              <input
+                type="text"
+                id="family-affix-receiver-1"
+                name="family-affix-receiver-1"
+              />
+            </div>
+            <div>
+              <label for="surname-receiver-1">Achternaam</label>
+              <input
+                type="text"
+                id="surname-receiver-1"
+                name="surname-receiver-1"
+                data-required
+                aria-describedby="surname-receiver-1-desc"
+              />
+              <span
+                id="surname-receiver-1-desc"
+                data-error-message="Dit veld is verplicht."
+              ></span>
+            </div>
+            <div>
+              <label for="date-born-receiver-1">Geboortedatum</label>
+              <input
+                type="date"
+                id="date-born-receiver-1"
+                name="date-born-receiver-1"
+                placeholder="yyyy-mm-dd"
+                pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
+                title="Vul een geldige datum (yyyy-mm-dd) uit het verleden in"
+                min="1900-01-01"
+                data-max="today"
+                data-required
+                aria-describedby="date-born-receiver-1-desc"
+              />
+              <span
+                id="date-born-receiver-1-desc"
+                data-error-message="Vul een geldige datum (yyyy-mm-dd) uit het verleden in."
+              ></span>
+            </div>
+          </fieldset>
+          <fieldset data-hide="is-not-person-receiver-1-no">
+            <legend>Gegevens instelling</legend>
+            <div>
+              <div>
+                <label for="rsin-receiver-1">RSIN instelling</label>
+                <span
+                  data-tooltip="RSIN staat voor Rechtspersonen en Samenwerkings- verbanden Informatie Nummer. Een RSIN bestaat uit 9 cijfers."
+                >
+                  <span role="status" aria-live="polite">
+                    <div>
+                      RSIN staat voor Rechtspersonen en Samenwerkings- verbanden
+                      Informatie Nummer. Een RSIN bestaat uit 9 cijfers.
+                    </div>
+                  </span>
+                </span>
+              </div>
+              <input
+                type="text"
+                id="rsin-receiver-1"
+                name="rsin-receiver-1"
+                inputmode="numeric"
+                pattern="[0-9]{9}"
+                title="Vul een geldige RSIN in van 9 nummers"
+                minlength="9"
+                data-required
+                aria-describedby="rsin-receiver-1-desc"
+              />
+              <span
+                id="rsin-receiver-1-desc"
+                data-error-message="Vul een geldige RSIN in van 9 nummers."
+              ></span>
+            </div>
+            <div>
+              <label for="name-receiver-1">Naam instelling</label>
+              <input
+                type="text"
+                id="name-receiver-1"
+                name="name-receiver-1"
+                data-required
+                aria-describedby="name-receiver-1-desc"
+              />
+              <span
+                id="name-receiver-1-desc"
+                data-error-message="Dit veld is verplicht."
+              ></span>
+            </div>
+          </fieldset>
+        </fieldset>
+        <fieldset>
+          <legend>4b. Adresgegevens</legend>
+          <fieldset data-hide-print>
+            <legend>Heeft de verkrijger een adres in het buitenland?</legend>
+            <div>
+              <input
+                type="radio"
+                id="foreign-address-receiver-1-no"
+                name="foreign-address-receiver-1"
+                value="Nee"
+                required
+                aria-required="true"
+                checked
+              />
+              <label for="foreign-address-receiver-1-no">Nee.</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                id="foreign-address-receiver-1-yes"
+                name="foreign-address-receiver-1"
+                value="Ja"
+              />
+              <label for="foreign-address-receiver-1-yes">Ja.</label>
+            </div>
+          </fieldset>
+          <fieldset data-hide="foreign-address-receiver-1-yes">
+            <legend>Adres in Nederland</legend>
+            <div>
+              <label for="street-local-receiver-1">Straat</label>
+              <input
+                type="text"
+                id="street-local-receiver-1"
+                name="street-local-receiver-1"
+                data-required
+                aria-describedby="street-local-receiver-1-desc"
+              />
+              <span
+                id="street-local-receiver-1-desc"
+                data-error-message="Dit veld is verplicht."
+              ></span>
+            </div>
+            <div>
+              <label for="house-nr-local-receiver-1">Huisnummer</label>
+              <input
+                type="text"
+                id="house-nr-local-receiver-1"
+                name="house-nr-local-receiver-1"
+                data-required
+                aria-describedby="house-nr-local-receiver-1-desc"
+              />
+              <span
+                id="house-nr-local-receiver-1-desc"
+                data-error-message="Dit veld is verplicht."
+              ></span>
+            </div>
+            <div>
+              <label for="address-addition-local-receiver-1">Toevoeging</label>
+              <input
+                type="text"
+                id="address-addition-local-receiver-1"
+                name="address-addition-local-receiver-1"
+              />
+            </div>
+            <div>
+              <label for="postcode-local-receiver-1">Postcode</label>
+              <input
+                type="text"
+                id="postcode-local-receiver-1"
+                name="postcode-local-receiver-1"
+                pattern="[0-9]{4}\s?[a-zA-Z]{2}"
+                title="Vul een geldige postcode in, zoals 1234AB."
+                data-required
+                aria-describedby="postcode-local-receiver-1-desc"
+              />
+              <span
+                id="postcode-local-receiver-1-desc"
+                data-error-message="Vul een geldige postcode in, zoals 1234AB."
+              ></span>
+            </div>
+            <div>
+              <label for="place-local-receiver-1">Woonplaats</label>
+              <input
+                type="text"
+                id="place-local-receiver-1"
+                name="place-local-receiver-1"
+                data-required
+                aria-describedby="place-local-receiver-1-desc"
+              />
+              <span
+                id="place-local-receiver-1-desc"
+                data-error-message="Dit veld is verplicht."
+              ></span>
+            </div>
+          </fieldset>
+          <fieldset data-hide="foreign-address-receiver-1-no">
+            <legend>Adres in het buitenland</legend>
+            <div>
+              <label for="street-foreign-receiver-1">Straat</label>
+              <input
+                type="text"
+                id="street-foreign-receiver-1"
+                name="street-foreign-receiver-1"
+                data-required
+                aria-describedby="street-foreign-receiver-1-desc"
+              />
+              <span
+                id="street-foreign-receiver-1-desc"
+                data-error-message="Dit veld is verplicht."
+              ></span>
+            </div>
+            <div>
+              <label for="house-nr-foreign-receiver-1">Huisnummer</label>
+              <input
+                type="text"
+                id="house-nr-foreign-receiver-1"
+                name="house-nr-foreign-receiver-1"
+                data-required
+                aria-describedby="house-nr-foreign-receiver-1-desc"
+              />
+              <span
+                id="house-nr-foreign-receiver-1-desc"
+                data-error-message="Dit veld is verplicht."
+              ></span>
+            </div>
+            <div>
+              <label for="postcode-foreign-receiver-1">Postcode</label>
+              <input
+                type="text"
+                id="postcode-foreign-receiver-1"
+                name="postcode-foreign-receiver-1"
+                data-required
+                aria-describedby="postcode-foreign-receiver-1-desc"
+              />
+              <span
+                id="postcode-foreign-receiver-1-desc"
+                data-error-message="Dit veld is verplicht."
+              ></span>
+            </div>
+            <div>
+              <label for="place-foreign-receiver-1">Plaats</label>
+              <input
+                type="text"
+                id="place-foreign-receiver-1"
+                name="place-foreign-receiver-1"
+                data-required
+                aria-describedby="place-foreign-receiver-1-desc"
+              />
+              <span
+                id="place-foreign-receiver-1-desc"
+                data-error-message="Dit veld is verplicht."
+              ></span>
+            </div>
+            <div>
+              <label for="country-foreign-receiver-1">Landcode</label>
+              <select
+                id="country-foreign-receiver-1"
+                name="country-foreign-receiver-1"
+                data-required
+                data-max="3"
+                minlength="3"
+                pattern="[A-Z]{3}"
+                title="Vul een geldige landcode van drie letters in, zoals DEU voor Duitsland."
+                aria-describedby="country-foreign-receiver-1-desc"
+              >
+                <option value="" selected>Kies een land</option>
+                <option value="AFG">Afghanistan</option>
+                <option value="ALA">Åland</option>
+                <option value="ALB">Albanië</option>
+                <option value="DZA">Algerije</option>
+                <option value="VIR">Amerikaanse Maagdeneilanden</option>
+                <option value="ASM">Amerikaans-Samoa</option>
+                <option value="AND">Andorra</option>
+                <option value="AGO">Angola</option>
+                <option value="AIA">Anguilla</option>
+                <option value="ATA">Antarctica</option>
+                <option value="ATG">Antigua en Barbuda</option>
+                <option value="ARG">Argentinië</option>
+                <option value="ARM">Armenië</option>
+                <option value="ABW">Aruba</option>
+                <option value="AUS">Australië</option>
+                <option value="AZE">Azerbeidzjan</option>
+                <option value="BHS">Bahama's</option>
+                <option value="BHR">Bahrein</option>
+                <option value="BGD">Bangladesh</option>
+                <option value="BRB">Barbados</option>
+                <option value="BEL">België</option>
+                <option value="BLZ">Belize</option>
+                <option value="BEN">Benin</option>
+                <option value="BMU">Bermuda</option>
+                <option value="BTN">Bhutan</option>
+                <option value="BOL">Bolivia</option>
+                <option value="BIH">Bosnië en Herzegovina</option>
+                <option value="BWA">Botswana</option>
+                <option value="BVT">Bouveteiland</option>
+                <option value="BRA">Brazilië</option>
+                <option value="VGB">Britse Maagdeneilanden</option>
+                <option value="IOT">Brits Indische Oceaanterritorium</option>
+                <option value="BRN">Brunei</option>
+                <option value="BGR">Bulgarije</option>
+                <option value="BFA">Burkina Faso</option>
+                <option value="BDI">Burundi</option>
+                <option value="KHM">Cambodja</option>
+                <option value="CAN">Canada</option>
+                <option value="CAF">Centraal-Afrikaanse Republiek</option>
+                <option value="CHL">Chili</option>
+                <option value="CHN">China</option>
+                <option value="CXR">Christmaseiland</option>
+                <option value="CCK">Cocoseilanden</option>
+                <option value="COL">Colombia</option>
+                <option value="COM">Comoren</option>
+                <option value="COG">Congo-Brazzaville</option>
+                <option value="COD">Congo-Kinshasa</option>
+                <option value="COK">Cookeilanden</option>
+                <option value="CRI">Costa Rica</option>
+                <option value="CUB">Cuba</option>
+                <option value="CUW">Curaçao</option>
+                <option value="CYP">Cyprus</option>
+                <option value="DNK">Denemarken</option>
+                <option value="DJI">Djibouti</option>
+                <option value="DMA">Dominica</option>
+                <option value="DOM">Dominicaanse Republiek</option>
+                <option value="DEU">Duitsland</option>
+                <option value="ECU">Ecuador</option>
+                <option value="EGY">Egypte</option>
+                <option value="SLV">El Salvador</option>
+                <option value="GNQ">Equatoriaal-Guinea</option>
+                <option value="ERI">Eritrea</option>
+                <option value="EST">Estland</option>
+                <option value="ETH">Ethiopië</option>
+                <option value="FRO">Faeröer</option>
+                <option value="FLK">Falklandeilanden</option>
+                <option value="FJI">Fiji</option>
+                <option value="PHL">Filipijnen</option>
+                <option value="FIN">Finland</option>
+                <option value="FRA">Frankrijk</option>
+                <option value="ATF">
+                  Franse Zuidelijke en Antarctische Gebieden
+                </option>
+                <option value="GUF">Frans-Guyana</option>
+                <option value="PYF">Frans-Polynesië</option>
+                <option value="XXX">Overig</option>
+              </select>
+              <span
+                id="country-foreign-receiver-1-desc"
+                data-error-message="Vul een geldige landcode van drie letters in, zoals DEU voor Duitsland."
+              ></span>
+            </div>
+          </fieldset>
+        </fieldset>
+        <fieldset>
+          <legend>
+            4c. Wat is de relatie van deze verkrijger met de overledene?
+          </legend>
+          <div>
+            <input
+              type="radio"
+              id="relation-receiver-1-partner"
+              name="relation-receiver-1"
+              value="Echtgenoot of geregistreerd partner"
+              required
+              aria-required="true"
+            />
+            <label for="relation-receiver-1-partner">
+              Echtgenoot of geregistreerd partner
+            </label>
+          </div>
+          <div>
+            <input
+              type="radio"
+              id="relation-receiver-1-cohabiter"
+              name="relation-receiver-1"
+              value="Samenwoner zonder notariële akte"
+            />
+            <label for="relation-receiver-1-cohabiter">
+              Samenwoner zonder notariële akte
+            </label>
+          </div>
+          <fieldset data-hide="relation-receiver-1-cohabiter">
+            <legend>
+              Stonden de verkrijger en de overledene tot de overlijdens datum
+              minstens 5 jaar op hetzelfde adres ingeschreven in de
+              Basisregistratie Personen (BRP) of een vergelijkbare administratie
+              buiten Nederland?
+            </legend>
+            <div>
+              <input
+                type="radio"
+                id="cohabiter-long-receiver-1-no"
+                name="cohabiter-long-receiver-1"
+                value="Nee"
+              />
+              <label for="cohabiter-long-receiver-1-no">Nee.</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                id="cohabiter-long-receiver-1-yes"
+                name="cohabiter-long-receiver-1"
+                value="Ja"
+              />
+              <label for="cohabiter-long-receiver-1-yes">Ja.</label>
+            </div>
+          </fieldset>
+        </fieldset>
         <button type="reset">Reset</button>
         <button id="submit" type="submit">Submit</button>
       </form>

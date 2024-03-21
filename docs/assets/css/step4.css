@@ -1,0 +1,12 @@
+/* Hide unnecessary fields */
+@supports selector(:has(input[type="radio"]:checked)) {
+  :root:has(#is-not-person-receiver-1-yes:checked)
+    [data-hide="is-not-person-receiver-1-yes"] {
+    display: none;
+  }
+
+  :root:has(#is-not-person-receiver-1-no:checked)
+    [data-hide="is-not-person-receiver-1-no"] {
+    display: none;
+  }
+}
