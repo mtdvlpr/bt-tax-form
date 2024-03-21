@@ -11,6 +11,10 @@ initToggle();
  */
 function initToggle() {
   const hiddenElements = document.querySelectorAll("[data-hide]");
+  /**
+   * List of all controllers
+   * @type {string[]}
+   */
   const controllers = [];
 
   // Fetch all controllers
@@ -41,25 +45,27 @@ function initToggle() {
       inputs: hiddenInputs,
     };
 
-    const controllerEl = document.getElementById(controller);
+    const reverseToggle = controller.startsWith("!");
+    const controllerId = reverseToggle ? controller.slice(1) : controller;
+    const controllerEl = document.getElementById(controllerId);
 
     // Toggle the section based on the initial state of the controller
-    toggleSection(controller, !controllerEl.checked);
+    toggleSection(controller, controllerEl.checked === reverseToggle);
 
-    // Controller is checked, so hide the section
+    // Controller is checked, so toggle the section
     if (controllerEl) {
       controllerEl.addEventListener("change", (e) => {
-        toggleSection(controller, !e.target.value);
+        toggleSection(controller, e.target.checked === reverseToggle);
       });
     }
 
-    // Counterpart is checked, so show the section
+    // Counterpart is checked, so toggle the section
     const counterparts = document.querySelectorAll(
-      `[name=${controllerEl.getAttribute("name")}]:not(#${controller})`
+      `[name=${controllerEl.getAttribute("name")}]:not(#${controllerId})`
     );
     counterparts.forEach((el) => {
       el.addEventListener("change", (e) => {
-        toggleSection(controller, !!e.target.value);
+        toggleSection(controller, e.target.checked !== reverseToggle);
       });
     });
   });
@@ -71,7 +77,7 @@ function initToggle() {
  * @param {boolean} show Whether to show or hide the section
  */
 function toggleSection(controller, show = false) {
-  const containerEl = document.querySelector(`[data-hide=${controller}]`);
+  const containerEl = document.querySelector(`[data-hide="${controller}"]`);
   containerEl.style.display = show ? "" : "none";
   const inputs = inputMap[controller].inputs;
 
