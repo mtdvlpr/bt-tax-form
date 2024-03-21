@@ -153,9 +153,17 @@ window.addEventListener("beforeprint", () => {
   // Replace selects
   replaceSelects();
 
+  // Replace signature
+  replaceSignatures();
+
+  // Replace number inputs
+  replaceNumberInputs();
+
   // Change submit link text
   const submitLink = document.querySelector('a[href$="#submit"]');
-  submitLink.innerText = "Ga verder met de volgende vraag.";
+  if (submitLink) {
+    submitLink.innerText = "Ga verder met de volgende vraag.";
+  }
 });
 
 // Reverse print transformation after print dialog is closed
@@ -169,10 +177,18 @@ window.addEventListener("afterprint", () => {
   // Revert selects
   replaceSelects(true);
 
+  // Revert signature
+  replaceSignatures(true);
+
+  // Revert number inputs
+  replaceNumberInputs(true);
+
   // Revert submit link text
   const submitLink = document.querySelector('a[href$="#submit"]');
-  submitLink.innerText =
-    "Verstuur dit formulier en ga verder met de volgende stap.";
+  if (submitLink) {
+    submitLink.innerText =
+      "Verstuur dit formulier en ga verder met de volgende stap.";
+  }
 });
 
 /**
@@ -248,13 +264,13 @@ function replaceSelects(reverse = false) {
         }
       }
 
-      // Extract date value and set them to the new inputs
+      // Extract select value and set it to the new input
       const selection = input.value;
       if (selection) {
         textInput.value = selection;
       }
 
-      // Add select to the div and insert it before the select
+      // Add text input to the div and insert it before the select
       div.appendChild(textInput);
       input.parentElement.insertBefore(div, input);
     }
@@ -265,7 +281,7 @@ function replaceSelects(reverse = false) {
  * Replaces signature inputs with textareas
  * @param {boolean} reverse Wether to reverse the transformation (textarea to signature input)
  */
-function replaceSelects(reverse = false) {
+function replaceSignatures(reverse = false) {
   const inputs = document.querySelectorAll("[data-signature]");
   inputs.forEach((input) => {
     if (reverse) {
@@ -288,6 +304,42 @@ function replaceSelects(reverse = false) {
       div.appendChild(label);
       input.parentElement.insertBefore(div, input);
       input.parentElement.insertBefore(textarea, input);
+    }
+  });
+}
+
+/**
+ * Replaces number with text inputs
+ * @param {boolean} reverse Wether to reverse the transformation (text to number)
+ */
+function replaceNumberInputs(reverse = false) {
+  const inputs = document.querySelectorAll("input[type=number]");
+  inputs.forEach((input) => {
+    if (reverse) {
+      // Show number and remove the text input
+      input.style.display = "";
+      input.parentElement.removeChild(input.parentElement.querySelector("div"));
+    } else {
+      // Hide number and create text input
+      input.style.display = "none";
+      const div = document.createElement("div");
+      const textInput = document.createElement("input");
+
+      const max = input.getAttribute("data-max");
+      if (max) {
+        try {
+          textInput.style.width = `${25 * parseInt(max)}px`;
+        } catch (e) {
+          console.debug(e);
+        }
+      }
+
+      // Extract number value and set it to the new input
+      textInput.value = input.value;
+
+      // Add text input to the div and insert it before the select
+      div.appendChild(textInput);
+      input.parentElement.insertBefore(div, input);
     }
   });
 }
